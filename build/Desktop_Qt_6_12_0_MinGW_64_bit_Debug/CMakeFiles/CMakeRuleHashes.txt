@@ -10,6 +10,7 @@ f2bdc91432d6cafd863b3455e8e74471 .qt/qtconf_list.done
 0f7e1a8b09997be6e96a10a63b1bf35b .qt/rcc/qrc_qmake_SmartSlate.cpp
 33bde041f1ea036e5fffaed74064d72b .rcc/qmlcache/all_aotstats.aotstats
 eca7d31feb5572ec1af5049de8994b89 .rcc/qmlcache/appSmartSlate_Main_qml.cpp
+5e48e7bd259268d3dde64d2e4d84875a .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp
 fda8ac61bb6c684e123718bfd69ff3dc .rcc/qmlcache/appSmartSlate_qmlcache_loader.cpp
 1cabc4d6b3af83809319dd1acbf01118 .rcc/qmlcache/module_appSmartSlate.aotstats
 4acef6a92277c09e5ed638c4447844d5 CMakeFiles/all_aotstats

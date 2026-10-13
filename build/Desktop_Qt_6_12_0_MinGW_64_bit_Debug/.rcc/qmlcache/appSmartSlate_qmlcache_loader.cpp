@@ -13,6 +13,14 @@ namespace _qt_qml_SmartSlate_Main_qml {
         reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], &validateLookupSignatures
     };
 }
+namespace _qt_qml_SmartSlate_SlateField_qml { 
+    extern bool validateLookupSignatures(QQmlEngine *engine, QV4::CompiledData::CompilationUnit *cu);
+    extern const unsigned char qmlData[];
+    extern const QQmlPrivate::AOTCompiledFunction aotBuiltFunctions[];
+    const QQmlPrivate::CachedQmlUnit unit = {
+        reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], &validateLookupSignatures
+    };
+}
 
 }
 namespace {
@@ -28,6 +36,7 @@ Q_GLOBAL_STATIC(Registry, unitRegistry)
 
 Registry::Registry() {
     resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/SmartSlate/Main.qml"), &QmlCacheGeneratedCode::_qt_qml_SmartSlate_Main_qml::unit);
+    resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/SmartSlate/SlateField.qml"), &QmlCacheGeneratedCode::_qt_qml_SmartSlate_SlateField_qml::unit);
     QQmlPrivate::RegisterQmlUnitCacheHook registration;
     registration.structVersion = 0;
     registration.lookupCachedQmlUnit = &lookupCachedUnit;

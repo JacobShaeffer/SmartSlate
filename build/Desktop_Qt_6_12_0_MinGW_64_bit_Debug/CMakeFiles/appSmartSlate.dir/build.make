@@ -83,6 +83,7 @@ appsmartslate_qmltyperegistrations.cpp: C:/Qt/6.12.0/mingw_64/metatypes/qt6netwo
 appsmartslate_qmltyperegistrations.cpp: C:/Qt/6.12.0/mingw_64/metatypes/qt6quick_metatypes.json
 appsmartslate_qmltyperegistrations.cpp: C:/Qt/6.12.0/mingw_64/metatypes/qt6gui_metatypes.json
 appsmartslate_qmltyperegistrations.cpp: C:/Qt/6.12.0/mingw_64/metatypes/qt6opengl_metatypes.json
+appsmartslate_qmltyperegistrations.cpp: C:/Qt/6.12.0/mingw_64/metatypes/qt6virtualkeyboard_metatypes.json
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Automatic QML type registration for target appSmartSlate"
 	call .qt\bin\qt_setup_tool_path.bat C:/Qt/6.12.0/mingw_64/bin/qmltyperegistrar.exe "--generate-qmltypes=C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/SmartSlate/appSmartSlate.qmltypes" --import-name=SmartSlate --major-version=254 --minor-version=254 "@C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/qmltypes/appSmartSlate_foreign_types.txt" -o "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/appsmartslate_qmltyperegistrations.cpp" "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/meta_types/qt6appsmartslate_metatypes.json"
 	C:\Qt\Tools\CMake_64\bin\cmake.exe -E make_directory "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/qmltypes"
@@ -117,32 +118,46 @@ SmartSlate/appSmartSlate.qmltypes: appsmartslate_qmltyperegistrations.cpp
 .rcc/qmlcache/appSmartSlate_Main_qml.cpp.aotstats: .rcc/qmlcache/appSmartSlate_Main_qml.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate .rcc\qmlcache\appSmartSlate_Main_qml.cpp.aotstats
 
+.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp: C:/Qt/6.12.0/mingw_64/bin/qmlcachegen.exe
+.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp: C:/Users/Jacob/Projects/SmartSlate/Qt\ user\ interface/SmartSlate/SlateField.qml
+.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp: .qt/rcc/qmake_SmartSlate.qrc
+.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp: .qt/rcc/appSmartSlate_raw_qml_0.qrc
+.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp: SmartSlate/appSmartSlate.qmltypes
+.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp: SmartSlate/qmldir
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Generating .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp, .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.aotstats"
+	C:\Qt\Tools\CMake_64\bin\cmake.exe -E make_directory "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache"
+	call .qt\bin\qt_setup_tool_path.bat C:/Qt/6.12.0/mingw_64/bin/qmlcachegen.exe --bare --resource-path /qt/qml/SmartSlate/SlateField.qml -I "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug" -I C:/Qt/6.12.0/mingw_64/qml -i "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/SmartSlate/qmldir" --resource "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qmake_SmartSlate.qrc" --resource "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/appSmartSlate_raw_qml_0.qrc" --dump-aot-stats --module-id=SmartSlate(appSmartSlate) -o "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp" "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/SlateField.qml"
+
+.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.aotstats: .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp
+	@$(CMAKE_COMMAND) -E touch_nocreate .rcc\qmlcache\appSmartSlate_SlateField_qml.cpp.aotstats
+
 .qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp: C:/Users/Jacob/Projects/SmartSlate/Qt\ user\ interface/SmartSlate/Main.qml
+.qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp: C:/Users/Jacob/Projects/SmartSlate/Qt\ user\ interface/SmartSlate/SlateField.qml
 .qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp: .qt/rcc/appSmartSlate_raw_qml_0.qrc
 .qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp: C:/Qt/6.12.0/mingw_64/bin/rcc.exe
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Running rcc for resource appSmartSlate_raw_qml_0"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Running rcc for resource appSmartSlate_raw_qml_0"
 	C:\Qt\6.12.0\mingw_64\bin\rcc.exe --output "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp" --name appSmartSlate_raw_qml_0 "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/appSmartSlate_raw_qml_0.qrc" --no-zstd
 
 appSmartSlate_autogen/timestamp: C:/Qt/6.12.0/mingw_64/bin/moc.exe
 appSmartSlate_autogen/timestamp: CMakeFiles/appSmartSlate.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Automatic MOC and UIC for target appSmartSlate"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Automatic MOC and UIC for target appSmartSlate"
 	C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autogen "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/appSmartSlate_autogen.dir/AutogenInfo.json" Debug
 	C:\Qt\Tools\CMake_64\bin\cmake.exe -E touch "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/appSmartSlate_autogen/timestamp"
 
 meta_types/appSmartSlate_json_file_list.txt: C:/Qt/6.12.0/mingw_64/bin/cmake_automoc_parser.exe
 meta_types/appSmartSlate_json_file_list.txt: appSmartSlate_autogen/timestamp
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Running AUTOMOC file extraction for target appSmartSlate"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Running AUTOMOC file extraction for target appSmartSlate"
 	C:\Qt\6.12.0\mingw_64\bin\cmake_automoc_parser.exe --cmake-autogen-cache-file "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/appSmartSlate_autogen.dir/ParseCache.txt" --cmake-autogen-info-file "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/appSmartSlate_autogen.dir/AutogenInfo.json" --output-file-path "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/meta_types/appSmartSlate_json_file_list.txt" --timestamp-file-path "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/meta_types/appSmartSlate_json_file_list.txt.timestamp" --cmake-autogen-include-dir-path "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/appSmartSlate_autogen/include"
 
 meta_types/qt6appsmartslate_metatypes.json: meta_types/qt6appsmartslate_metatypes.json.gen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Generating meta_types/qt6appsmartslate_metatypes.json"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Generating meta_types/qt6appsmartslate_metatypes.json"
 	C:\Qt\Tools\CMake_64\bin\cmake.exe -E true
 
 CMakeFiles/appSmartSlate.dir/appSmartSlate_autogen/mocs_compilation.cpp.obj: CMakeFiles/appSmartSlate.dir/flags.make
 CMakeFiles/appSmartSlate.dir/appSmartSlate_autogen/mocs_compilation.cpp.obj: CMakeFiles/appSmartSlate.dir/includes_CXX.rsp
 CMakeFiles/appSmartSlate.dir/appSmartSlate_autogen/mocs_compilation.cpp.obj: appSmartSlate_autogen/mocs_compilation.cpp
 CMakeFiles/appSmartSlate.dir/appSmartSlate_autogen/mocs_compilation.cpp.obj: CMakeFiles/appSmartSlate.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/appSmartSlate.dir/appSmartSlate_autogen/mocs_compilation.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/appSmartSlate.dir/appSmartSlate_autogen/mocs_compilation.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/appSmartSlate.dir/appSmartSlate_autogen/mocs_compilation.cpp.obj -MF CMakeFiles\appSmartSlate.dir\appSmartSlate_autogen\mocs_compilation.cpp.obj.d -o CMakeFiles\appSmartSlate.dir\appSmartSlate_autogen\mocs_compilation.cpp.obj -c "C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\appSmartSlate_autogen\mocs_compilation.cpp"
 
 CMakeFiles/appSmartSlate.dir/appSmartSlate_autogen/mocs_compilation.cpp.i: cmake_force
@@ -157,7 +172,7 @@ CMakeFiles/appSmartSlate.dir/main.cpp.obj: CMakeFiles/appSmartSlate.dir/flags.ma
 CMakeFiles/appSmartSlate.dir/main.cpp.obj: CMakeFiles/appSmartSlate.dir/includes_CXX.rsp
 CMakeFiles/appSmartSlate.dir/main.cpp.obj: C:/Users/Jacob/Projects/SmartSlate/Qt\ user\ interface/SmartSlate/main.cpp
 CMakeFiles/appSmartSlate.dir/main.cpp.obj: CMakeFiles/appSmartSlate.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/appSmartSlate.dir/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/appSmartSlate.dir/main.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/appSmartSlate.dir/main.cpp.obj -MF CMakeFiles\appSmartSlate.dir\main.cpp.obj.d -o CMakeFiles\appSmartSlate.dir\main.cpp.obj -c "C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\main.cpp"
 
 CMakeFiles/appSmartSlate.dir/main.cpp.i: cmake_force
@@ -172,7 +187,7 @@ CMakeFiles/appSmartSlate.dir/appsmartslate_qmltyperegistrations.cpp.obj: CMakeFi
 CMakeFiles/appSmartSlate.dir/appsmartslate_qmltyperegistrations.cpp.obj: CMakeFiles/appSmartSlate.dir/includes_CXX.rsp
 CMakeFiles/appSmartSlate.dir/appsmartslate_qmltyperegistrations.cpp.obj: appsmartslate_qmltyperegistrations.cpp
 CMakeFiles/appSmartSlate.dir/appsmartslate_qmltyperegistrations.cpp.obj: CMakeFiles/appSmartSlate.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/appSmartSlate.dir/appsmartslate_qmltyperegistrations.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/appSmartSlate.dir/appsmartslate_qmltyperegistrations.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Wa,-mbig-obj -MD -MT CMakeFiles/appSmartSlate.dir/appsmartslate_qmltyperegistrations.cpp.obj -MF CMakeFiles\appSmartSlate.dir\appsmartslate_qmltyperegistrations.cpp.obj.d -o CMakeFiles\appSmartSlate.dir\appsmartslate_qmltyperegistrations.cpp.obj -c "C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\appsmartslate_qmltyperegistrations.cpp"
 
 CMakeFiles/appSmartSlate.dir/appsmartslate_qmltyperegistrations.cpp.i: cmake_force
@@ -187,7 +202,7 @@ CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/
 CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_SmartSlate.cpp.obj: CMakeFiles/appSmartSlate.dir/includes_CXX.rsp
 CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_SmartSlate.cpp.obj: .qt/rcc/qrc_qmake_SmartSlate.cpp
 CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_SmartSlate.cpp.obj: CMakeFiles/appSmartSlate.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_SmartSlate.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_SmartSlate.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_SmartSlate.cpp.obj -MF CMakeFiles\appSmartSlate.dir\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.qt\rcc\qrc_qmake_SmartSlate.cpp.obj.d -o CMakeFiles\appSmartSlate.dir\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.qt\rcc\qrc_qmake_SmartSlate.cpp.obj -c "C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.qt\rcc\qrc_qmake_SmartSlate.cpp"
 
 CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_SmartSlate.cpp.i: cmake_force
@@ -202,7 +217,7 @@ CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qml
 CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_qmlcache_loader.cpp.obj: CMakeFiles/appSmartSlate.dir/includes_CXX.rsp
 CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_qmlcache_loader.cpp.obj: .rcc/qmlcache/appSmartSlate_qmlcache_loader.cpp
 CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_qmlcache_loader.cpp.obj: CMakeFiles/appSmartSlate.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_qmlcache_loader.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_qmlcache_loader.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_qmlcache_loader.cpp.obj -MF CMakeFiles\appSmartSlate.dir\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.rcc\qmlcache\appSmartSlate_qmlcache_loader.cpp.obj.d -o CMakeFiles\appSmartSlate.dir\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.rcc\qmlcache\appSmartSlate_qmlcache_loader.cpp.obj -c "C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.rcc\qmlcache\appSmartSlate_qmlcache_loader.cpp"
 
 CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_qmlcache_loader.cpp.i: cmake_force
@@ -217,7 +232,7 @@ CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qml
 CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_Main_qml.cpp.obj: CMakeFiles/appSmartSlate.dir/includes_CXX.rsp
 CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_Main_qml.cpp.obj: .rcc/qmlcache/appSmartSlate_Main_qml.cpp
 CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_Main_qml.cpp.obj: CMakeFiles/appSmartSlate.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_Main_qml.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_Main_qml.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_Main_qml.cpp.obj -MF CMakeFiles\appSmartSlate.dir\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.rcc\qmlcache\appSmartSlate_Main_qml.cpp.obj.d -o CMakeFiles\appSmartSlate.dir\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.rcc\qmlcache\appSmartSlate_Main_qml.cpp.obj -c "C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.rcc\qmlcache\appSmartSlate_Main_qml.cpp"
 
 CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_Main_qml.cpp.i: cmake_force
@@ -228,11 +243,26 @@ CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qml
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_Main_qml.cpp.s"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.rcc\qmlcache\appSmartSlate_Main_qml.cpp" -o CMakeFiles\appSmartSlate.dir\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.rcc\qmlcache\appSmartSlate_Main_qml.cpp.s
 
+CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.obj: CMakeFiles/appSmartSlate.dir/flags.make
+CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.obj: CMakeFiles/appSmartSlate.dir/includes_CXX.rsp
+CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.obj: .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp
+CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.obj: CMakeFiles/appSmartSlate.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.obj -MF CMakeFiles\appSmartSlate.dir\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.rcc\qmlcache\appSmartSlate_SlateField_qml.cpp.obj.d -o CMakeFiles\appSmartSlate.dir\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.rcc\qmlcache\appSmartSlate_SlateField_qml.cpp.obj -c "C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.rcc\qmlcache\appSmartSlate_SlateField_qml.cpp"
+
+CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.rcc\qmlcache\appSmartSlate_SlateField_qml.cpp" > CMakeFiles\appSmartSlate.dir\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.rcc\qmlcache\appSmartSlate_SlateField_qml.cpp.i
+
+CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.rcc\qmlcache\appSmartSlate_SlateField_qml.cpp" -o CMakeFiles\appSmartSlate.dir\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.rcc\qmlcache\appSmartSlate_SlateField_qml.cpp.s
+
 CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp.obj: CMakeFiles/appSmartSlate.dir/flags.make
 CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp.obj: CMakeFiles/appSmartSlate.dir/includes_CXX.rsp
 CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp.obj: .qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp
 CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp.obj: CMakeFiles/appSmartSlate.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp.obj -MF CMakeFiles\appSmartSlate.dir\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.qt\rcc\qrc_appSmartSlate_raw_qml_0.cpp.obj.d -o CMakeFiles\appSmartSlate.dir\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.qt\rcc\qrc_appSmartSlate_raw_qml_0.cpp.obj -c "C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.qt\rcc\qrc_appSmartSlate_raw_qml_0.cpp"
 
 CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp.i: cmake_force
@@ -251,6 +281,7 @@ appSmartSlate_OBJECTS = \
 "CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_SmartSlate.cpp.obj" \
 "CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_qmlcache_loader.cpp.obj" \
 "CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_Main_qml.cpp.obj" \
+"CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.obj" \
 "CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp.obj"
 
 # External object files for target appSmartSlate
@@ -262,20 +293,22 @@ appSmartSlate.exe: CMakeFiles/appSmartSlate.dir/appsmartslate_qmltyperegistratio
 appSmartSlate.exe: CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_SmartSlate.cpp.obj
 appSmartSlate.exe: CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_qmlcache_loader.cpp.obj
 appSmartSlate.exe: CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_Main_qml.cpp.obj
+appSmartSlate.exe: CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.obj
 appSmartSlate.exe: CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp.obj
 appSmartSlate.exe: CMakeFiles/appSmartSlate.dir/build.make
+appSmartSlate.exe: C:/Qt/6.12.0/mingw_64/lib/libQt6VirtualKeyboard.a
 appSmartSlate.exe: C:/Qt/6.12.0/mingw_64/lib/libQt6Quick.a
 appSmartSlate.exe: C:/Qt/6.12.0/mingw_64/lib/libQt6OpenGL.a
-appSmartSlate.exe: C:/Qt/6.12.0/mingw_64/lib/libQt6Gui.a
 appSmartSlate.exe: C:/Qt/6.12.0/mingw_64/lib/libQt6Qml.a
 appSmartSlate.exe: C:/Qt/6.12.0/mingw_64/lib/libQt6Network.a
+appSmartSlate.exe: C:/Qt/6.12.0/mingw_64/lib/libQt6Gui.a
 appSmartSlate.exe: C:/Qt/6.12.0/mingw_64/lib/libQt6Core.a
 appSmartSlate.exe: C:/Qt/6.12.0/mingw_64/lib/libQt6EntryPoint.a
 appSmartSlate.exe: appSmartSlate.exe.manifest
 appSmartSlate.exe: CMakeFiles/appSmartSlate.dir/linkLibs.rsp
 appSmartSlate.exe: CMakeFiles/appSmartSlate.dir/objects1.rsp
 appSmartSlate.exe: CMakeFiles/appSmartSlate.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable appSmartSlate.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable appSmartSlate.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\appSmartSlate.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -290,6 +323,8 @@ CMakeFiles/appSmartSlate.dir/depend: .qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp
 CMakeFiles/appSmartSlate.dir/depend: .qt/rcc/qrc_qmake_SmartSlate.cpp
 CMakeFiles/appSmartSlate.dir/depend: .rcc/qmlcache/appSmartSlate_Main_qml.cpp
 CMakeFiles/appSmartSlate.dir/depend: .rcc/qmlcache/appSmartSlate_Main_qml.cpp.aotstats
+CMakeFiles/appSmartSlate.dir/depend: .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp
+CMakeFiles/appSmartSlate.dir/depend: .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.aotstats
 CMakeFiles/appSmartSlate.dir/depend: .rcc/qmlcache/appSmartSlate_qmlcache_loader.cpp
 CMakeFiles/appSmartSlate.dir/depend: SmartSlate/appSmartSlate.qmltypes
 CMakeFiles/appSmartSlate.dir/depend: appSmartSlate_autogen/timestamp

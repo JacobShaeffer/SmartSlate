@@ -71,6 +71,7 @@ CMakeFiles/appSmartSlate_qmlimportscan: .qt/qml_imports/appSmartSlate_build.cmak
 .qt/qml_imports/appSmartSlate_build.cmake: .qt/rcc/qmake_SmartSlate.qrc
 .qt/qml_imports/appSmartSlate_build.cmake: .qt/rcc/appSmartSlate_raw_qml_0.qrc
 .qt/qml_imports/appSmartSlate_build.cmake: C:/Users/Jacob/Projects/SmartSlate/Qt\ user\ interface/SmartSlate/Main.qml
+.qt/qml_imports/appSmartSlate_build.cmake: C:/Users/Jacob/Projects/SmartSlate/Qt\ user\ interface/SmartSlate/SlateField.qml
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Running qmlimportscanner for appSmartSlate"
 	cd /d C:\Users\Jacob\Projects\SMARTS~1\QTUSER~1\SMARTS~1 && call "C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.qt\bin\qt_setup_tool_path.bat" C:/Qt/6.12.0/mingw_64/bin/qmlimportscanner.exe "@C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/qml_imports/appSmartSlate_build.rsp"
 

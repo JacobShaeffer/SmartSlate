@@ -1,90 +1,169 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls.Basic
-
+import QtQuick.VirtualKeyboard
 
 ApplicationWindow {
     id: window
-    width: 640
-    height: 480
-    minimumWidth: 200
-    minimumHeight: 250
+
+    width: 960
+    height: 640
+    minimumWidth: 480
+    minimumHeight: 480
     visible: true
-    title: qsTr("Hello World")
-    property bool lightMode: Application.styleHints.colorScheme === Qt.Light
-    property color reallyDark: "#1f1f1f"
-    property color dark: "#262626"
-    property color reallyLight: "#e7e7e7"
-    property color light: "#e0e0e0"
+    title: qsTr("SmartSlate")
+    color: "#191919"
 
-    GridLayout {
-        id: grid
-        columns: width < 400 ? 1 : 2
-        rowSpacing: 0
-        columnSpacing: 0
-        anchors.fill: parent
+    Flickable {
+        id: slateViewport
+        objectName: "slateViewport"
 
-        Rectangle {
-            id: rectangle1
-            color: window.lightMode ? window.reallyLight : window.reallyDark
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.bottom: inputPanel.top
+        clip: true
+        contentWidth: width
+        contentHeight: slate.height
+        flickableDirection: Flickable.VerticalFlick
+        boundsBehavior: Flickable.StopAtBounds
 
-            ColumnLayout {
-                anchors.fill: parent
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+        // Keep the editing line above the keyboard, including at small window sizes.
+        function revealInput() {
+            const input = window.activeFocusItem as TextField
+            if (!input)
+                return
 
-                Label {
-                    id: text1
-                    color: window.lightMode ? window.dark : window.light
-                    font.pixelSize: 120
-                    fontSizeMode: Text.Fit
-                    text: qsTr("Hello World")
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    Layout.margins: 16
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-            }
+            const position = input.mapToItem(slate, 0, input.cursorRectangle.y)
+            const top = Math.max(0, position.y - 32)
+            const bottom = position.y + input.cursorRectangle.height + 24
+            let scrollPosition = contentY
+
+            if (bottom > scrollPosition + height)
+                scrollPosition = bottom - height
+            if (top < scrollPosition)
+                scrollPosition = top
+
+            contentY = Math.max(0, Math.min(contentHeight - height, scrollPosition))
+        }
+
+        onHeightChanged: Qt.callLater(revealInput)
+
+        ScrollBar.vertical: ScrollBar {
+            policy: ScrollBar.AsNeeded
         }
 
         Rectangle {
-            id: rectangle2
-            color: window.lightMode ? window.light : window.dark
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+            id: slate
+            objectName: "slate"
+
+            width: slateViewport.width
+            height: Math.max(460, slateViewport.height)
+            color: "#111111"
 
             ColumnLayout {
                 anchors.fill: parent
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+                spacing: 4
 
-                Button {
-                    id: button1
-                    text: window.lightMode ? qsTr("\u263D  Dark mode")
-                                           : qsTr("\u263C  Light mode")
-                    Layout.bottomMargin: 16
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
+                SlateField {
+                    id: productionField
+                    objectName: "production"
+                    label: qsTr("Production")
+                    nextInput: rollField.input
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 88
+                }
 
-                    contentItem: Text {
-                        text: button1.text
-                        color: window.lightMode ? window.light : window.dark
-                        font: button1.font
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
+                RowLayout {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Layout.minimumHeight: 176
+                    spacing: 4
+
+                    SlateField {
+                        id: rollField
+                        objectName: "roll"
+                        label: qsTr("Roll")
+                        centeredValue: true
+                        valueFontSize: 76
+                        nextInput: sceneField.input
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        Layout.horizontalStretchFactor: 1
+                        Layout.preferredWidth: 1
                     }
 
-                    background: Rectangle {
-                        implicitWidth: 120
-                        implicitHeight: 36
-                        radius: 8
-                        color: window.lightMode ? window.dark : window.light
+                    SlateField {
+                        id: sceneField
+                        objectName: "scene"
+                        label: qsTr("Scene")
+                        centeredValue: true
+                        valueFontSize: 112
+                        nextInput: takeField.input
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        Layout.horizontalStretchFactor: 2
+                        Layout.preferredWidth: 2
                     }
 
-                    onClicked: window.lightMode = !window.lightMode
+                    SlateField {
+                        id: takeField
+                        objectName: "take"
+                        label: qsTr("Take")
+                        centeredValue: true
+                        valueFontSize: 112
+                        nextInput: directorField.input
+                        Layout.fillWidth: true
+                        Layout.preferredWidth: 2
+                        Layout.fillHeight: true
+                        Layout.horizontalStretchFactor: 2
+                    }
+                }
+
+                SlateField {
+                    id: directorField
+                    objectName: "director"
+                    label: qsTr("Director")
+                    nextInput: cameraField.input
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 88
+                }
+
+                SlateField {
+                    id: cameraField
+                    objectName: "camera"
+                    label: qsTr("Camera")
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 88
                 }
             }
         }
     }
 
+    Connections {
+        target: window
+
+        function onActiveFocusItemChanged() {
+            Qt.callLater(slateViewport.revealInput)
+        }
+    }
+
+    Connections {
+        target: window.activeFocusItem as TextField
+
+        function onCursorRectangleChanged() {
+            Qt.callLater(slateViewport.revealInput)
+        }
+    }
+
+    InputPanel {
+        id: inputPanel
+        objectName: "virtualKeyboard"
+
+        z: 2
+        width: Math.min(window.width, 960)
+        x: (window.width - width) / 2
+        y: active ? window.height - height : window.height
+        visible: active
+    }
 }

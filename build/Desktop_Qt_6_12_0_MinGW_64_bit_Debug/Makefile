@@ -553,6 +553,30 @@ build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_Main_qml.
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\appSmartSlate.dir\build.make CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_Main_qml.cpp.s
 .PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_Main_qml.cpp.s
 
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.obj: build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.obj
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.obj
+
+# target to build an object file
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appSmartSlate.dir\build.make CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.obj
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.obj
+
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.i: build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.i
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.i
+
+# target to preprocess a source file
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appSmartSlate.dir\build.make CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.i
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.i
+
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.s: build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.s
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.s
+
+# target to generate assembly for a file
+build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appSmartSlate.dir\build.make CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.s
+.PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.s
+
 build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_qmlcache_loader.obj: build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_qmlcache_loader.cpp.obj
 .PHONY : build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_qmlcache_loader.obj
 
@@ -649,6 +673,9 @@ help:
 	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_Main_qml.obj
 	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_Main_qml.i
 	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_Main_qml.s
+	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.obj
+	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.i
+	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.s
 	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_qmlcache_loader.obj
 	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_qmlcache_loader.i
 	@echo ... build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_qmlcache_loader.s
