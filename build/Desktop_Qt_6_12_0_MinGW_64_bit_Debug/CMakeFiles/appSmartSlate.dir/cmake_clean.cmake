@@ -1,0 +1,41 @@
+file(REMOVE_RECURSE
+  ".qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp"
+  ".qt/rcc/qrc_qmake_SmartSlate.cpp"
+  ".rcc/qmlcache/appSmartSlate_Main_qml.cpp"
+  ".rcc/qmlcache/appSmartSlate_Main_qml.cpp.aotstats"
+  ".rcc/qmlcache/appSmartSlate_qmlcache_loader.cpp"
+  "CMakeFiles/appSmartSlate_autogen.dir/AutogenUsed.txt"
+  "CMakeFiles/appSmartSlate_autogen.dir/ParseCache.txt"
+  "appSmartSlate_autogen"
+  "CMakeFiles/appSmartSlate.dir/appSmartSlate_autogen/mocs_compilation.cpp.obj"
+  "CMakeFiles/appSmartSlate.dir/appSmartSlate_autogen/mocs_compilation.cpp.obj.d"
+  "CMakeFiles/appSmartSlate.dir/appsmartslate_qmltyperegistrations.cpp.obj"
+  "CMakeFiles/appSmartSlate.dir/appsmartslate_qmltyperegistrations.cpp.obj.d"
+  "CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp.obj"
+  "CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp.obj.d"
+  "CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_SmartSlate.cpp.obj"
+  "CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_qmake_SmartSlate.cpp.obj.d"
+  "CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_Main_qml.cpp.obj"
+  "CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_Main_qml.cpp.obj.d"
+  "CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_qmlcache_loader.cpp.obj"
+  "CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_qmlcache_loader.cpp.obj.d"
+  "CMakeFiles/appSmartSlate.dir/main.cpp.obj"
+  "CMakeFiles/appSmartSlate.dir/main.cpp.obj.d"
+  "SmartSlate/appSmartSlate.qmltypes"
+  "appSmartSlate.exe"
+  "appSmartSlate.exe.manifest"
+  "appSmartSlate.pdb"
+  "appSmartSlate_autogen/mocs_compilation.cpp"
+  "appSmartSlate_autogen/timestamp"
+  "appsmartslate_qmltyperegistrations.cpp"
+  "libappSmartSlate.dll.a"
+  "meta_types/appSmartSlate_json_file_list.txt"
+  "meta_types/appSmartSlate_json_file_list.txt.timestamp"
+  "meta_types/qt6appsmartslate_metatypes.json"
+  "meta_types/qt6appsmartslate_metatypes.json.gen"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/appSmartSlate.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

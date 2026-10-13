@@ -1,0 +1,6 @@
+module SmartSlate
+typeinfo appSmartSlate.qmltypes
+prefer :/qt/qml/SmartSlate/
+Main 254.0 Main.qml
+depends QtQuick
+
