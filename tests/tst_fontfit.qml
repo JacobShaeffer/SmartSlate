@@ -213,25 +213,111 @@ Item {
             tryCompare(customKeyboard, "numberMode", false)
             tryCompare(InputContext.inputEngine, "inputMode",
                        InputEngine.InputMode.Latin)
-            compare(modeSwitch.text, "123")
             compare(customKeyboard.letterRows[0].join(""), "QWERTYUIOP")
             compare(customKeyboard.letterRows[1].join(""), "ASDFGHJKL")
             compare(customKeyboard.letterRows[2].join(""), "ZXCVBNM")
 
             tryVerify(function() {
                 return findDescendant(customKeyboard, "sceneTakeKeyA") !== null
+                       && findDescendant(customKeyboard,
+                                         "sceneTakeModeSwitch") !== null
             })
+            const letterModeSwitch = findDescendant(customKeyboard,
+                                                     "sceneTakeModeSwitch")
             const aKey = findDescendant(customKeyboard, "sceneTakeKeyA")
+            verify(letterModeSwitch !== null)
             verify(aKey !== null)
-            verify(modeSwitch.mapToItem(customKeyboard, 0, 0).x
-                   < aKey.mapToItem(customKeyboard, 0, 0).x)
+            compare(letterModeSwitch.text, "123")
             aKey.click()
             tryCompare(input, "text", "70A")
 
-            modeSwitch.click()
+            letterModeSwitch.click()
             tryCompare(customKeyboard, "numberMode", true)
             tryCompare(InputContext.inputEngine, "inputMode",
                        InputEngine.InputMode.Numeric)
+        }
+
+        function test_numericKeyboardLayoutAndActions() {
+            const input = focusInput("scene")
+            const customKeyboard = findChild(slateWindow, "sceneTakeKeyboard")
+            tryCompare(customKeyboard, "numberMode", true)
+
+            const digitNames = "0123456789"
+            tryVerify(function() {
+                for (let i = 0; i < digitNames.length; ++i) {
+                    if (!findDescendant(customKeyboard,
+                                        "sceneTakeKey" + digitNames.charAt(i)))
+                        return false
+                }
+                return findDescendant(customKeyboard,
+                                      "sceneTakeModeSwitch") !== null
+                       && findDescendant(customKeyboard,
+                                         "sceneTakeKeyDismiss") !== null
+                       && findDescendant(customKeyboard,
+                                         "sceneTakeKeyBackspace") !== null
+                       && findDescendant(customKeyboard,
+                                         "sceneTakeKeyEnter") !== null
+            })
+
+            const sevenKey = findDescendant(customKeyboard, "sceneTakeKey7")
+            for (let i = 0; i < digitNames.length; ++i) {
+                const key = findDescendant(customKeyboard,
+                                           "sceneTakeKey" + digitNames.charAt(i))
+                verify(Math.abs(key.width - sevenKey.width) < 0.01)
+                verify(Math.abs(key.height - sevenKey.height) < 0.01)
+            }
+            verify(Math.abs(sevenKey.width / sevenKey.height - 4 / 3) < 0.01)
+
+            const modeSwitch = findDescendant(customKeyboard,
+                                              "sceneTakeModeSwitch")
+            const dismissKey = findDescendant(customKeyboard,
+                                              "sceneTakeKeyDismiss")
+            const backspaceKey = findDescendant(customKeyboard,
+                                                "sceneTakeKeyBackspace")
+            const enterKey = findDescendant(customKeyboard, "sceneTakeKeyEnter")
+            const actionKeys = [modeSwitch, dismissKey, backspaceKey, enterKey]
+            for (let j = 0; j < actionKeys.length; ++j) {
+                verify(Math.abs(actionKeys[j].width - sevenKey.width) < 0.01)
+                verify(Math.abs(actionKeys[j].height - sevenKey.height) < 0.01)
+            }
+            compare(backspaceKey.text, "\u232b")
+            compare(dismissKey.text, "\u2328\n\u2193")
+            compare(enterKey.text, "\u21b5 enter")
+
+            const fourKey = findDescendant(customKeyboard, "sceneTakeKey4")
+            const sixKey = findDescendant(customKeyboard, "sceneTakeKey6")
+            const nineKey = findDescendant(customKeyboard, "sceneTakeKey9")
+            const modePosition = modeSwitch.mapToItem(customKeyboard, 0, 0)
+            const dismissPosition = dismissKey.mapToItem(customKeyboard, 0, 0)
+            const backspacePosition = backspaceKey.mapToItem(customKeyboard, 0, 0)
+            const enterPosition = enterKey.mapToItem(customKeyboard, 0, 0)
+            const sevenPosition = sevenKey.mapToItem(customKeyboard, 0, 0)
+            const fourPosition = fourKey.mapToItem(customKeyboard, 0, 0)
+            const sixPosition = sixKey.mapToItem(customKeyboard, 0, 0)
+            const ninePosition = nineKey.mapToItem(customKeyboard, 0, 0)
+            verify(modePosition.x < sevenPosition.x)
+            verify(dismissPosition.x < fourPosition.x)
+            verify(backspacePosition.x > ninePosition.x)
+            verify(enterPosition.x > sixPosition.x)
+            verify(Math.abs(modePosition.y - sevenPosition.y) < 0.01)
+            verify(Math.abs(dismissPosition.y - fourPosition.y) < 0.01)
+
+            input.clear()
+            sevenKey.click()
+            findDescendant(customKeyboard, "sceneTakeKey0").click()
+            tryCompare(input, "text", "70")
+            backspaceKey.click()
+            tryCompare(input, "text", "7")
+
+            enterKey.click()
+            tryCompare(slateField("take").input, "activeFocus", true)
+
+            focusInput("scene")
+            const activeDismissKey = findDescendant(customKeyboard,
+                                                    "sceneTakeKeyDismiss")
+            activeDismissKey.click()
+            tryCompare(input, "activeFocus", false)
+            tryCompare(customKeyboard, "visible", false)
         }
 
         function test_dateMaskAndNumericOnlyInput() {
@@ -245,6 +331,10 @@ Item {
             verify((input.inputMethodHints & Qt.ImhDigitsOnly) !== 0)
             tryCompare(InputContext.inputEngine, "inputMode",
                        InputEngine.InputMode.Numeric)
+            const customKeyboard = findChild(slateWindow, "sceneTakeKeyboard")
+            compare(customKeyboard.visible, true)
+            compare(customKeyboard.numberMode, true)
+            compare(findChild(slateWindow, "virtualKeyboard").visible, false)
 
             const digits = "101526"
             for (let i = 0; i < digits.length; ++i) {
@@ -295,16 +385,103 @@ Item {
             compare(input.cursorPosition, 4)
         }
 
-        function test_otherFieldsKeepTextKeyboardAndCase() {
-            const field = slateField("production")
-            const input = focusInput("production")
-            compare(field.forceUppercase, false)
+        function test_textFieldsUseCustomAlphabeticKeyboard_data() {
+            return [
+                { tag: "production", name: "production" },
+                { tag: "roll", name: "roll" },
+                { tag: "notes", name: "notes" }
+            ]
+        }
+
+        function test_textFieldsUseCustomAlphabeticKeyboard(data) {
+            const field = slateField(data.name)
+            const input = focusInput(data.name)
+            if (data.name !== "notes")
+                compare(field.forceUppercase, false)
             verify((input.inputMethodHints & Qt.ImhPreferNumbers) === 0)
             verify((input.inputMethodHints & Qt.ImhDigitsOnly) === 0)
-            compare(findChild(slateWindow, "sceneTakeKeyboard").visible, false)
-            compare(findChild(slateWindow, "virtualKeyboard").visible, true)
+            const customKeyboard = findChild(slateWindow, "sceneTakeKeyboard")
+            compare(customKeyboard.visible, true)
+            compare(customKeyboard.numberMode, false)
+            compare(customKeyboard.inputTarget, input)
+            compare(findChild(slateWindow, "virtualKeyboard").visible, false)
             input.text = "Mixed case"
             compare(input.text, "Mixed case")
+        }
+
+        function test_alphabeticKeyboardLayoutAndActions() {
+            const input = focusInput("production")
+            const customKeyboard = findChild(slateWindow, "sceneTakeKeyboard")
+            tryCompare(customKeyboard, "numberMode", false)
+
+            const letterNames = "QWERTYUIOPASDFGHJKLZXCVBNM"
+            tryVerify(function() {
+                for (let i = 0; i < letterNames.length; ++i) {
+                    if (!findDescendant(customKeyboard,
+                                        "sceneTakeKey" + letterNames.charAt(i)))
+                        return false
+                }
+                return true
+            })
+
+            const qKey = findDescendant(customKeyboard, "sceneTakeKeyQ")
+            for (let i = 0; i < letterNames.length; ++i) {
+                const key = findDescendant(customKeyboard,
+                                           "sceneTakeKey" + letterNames.charAt(i))
+                verify(Math.abs(key.width - qKey.width) < 0.01)
+                verify(Math.abs(key.height - qKey.height) < 0.01)
+            }
+
+            const caseKey = findDescendant(customKeyboard, "sceneTakeKeyCase")
+            const backspaceKey = findDescendant(customKeyboard,
+                                                "sceneTakeKeyBackspace")
+            const modeSwitch = findDescendant(customKeyboard,
+                                              "sceneTakeModeSwitch")
+            const dismissKey = findDescendant(customKeyboard,
+                                              "sceneTakeKeyDismiss")
+            const spaceKey = findDescendant(customKeyboard, "sceneTakeKeySpace")
+            const enterKey = findDescendant(customKeyboard, "sceneTakeKeyEnter")
+            const wideKeys = [caseKey, backspaceKey, modeSwitch,
+                              dismissKey, enterKey]
+            for (let j = 0; j < wideKeys.length; ++j) {
+                verify(wideKeys[j] !== null)
+                verify(Math.abs(wideKeys[j].width - qKey.width * 1.5) < 0.01)
+            }
+            compare(caseKey.text, "\u21e7  Aa")
+            compare(backspaceKey.text, "\u232b")
+            compare(dismissKey.text, "\u2328  \u2193")
+            compare(enterKey.text, "\u21b5  enter")
+            verify(Math.abs(spaceKey.width - qKey.width * 3) < 0.01)
+            const spaceCenter = spaceKey.mapToItem(customKeyboard,
+                                                   spaceKey.width / 2, 0).x
+            verify(Math.abs(spaceCenter - customKeyboard.width / 2) < 0.01)
+
+            input.clear()
+            const aKey = findDescendant(customKeyboard, "sceneTakeKeyA")
+            compare(customKeyboard.uppercase, true)
+            aKey.click()
+            tryCompare(input, "text", "A")
+            caseKey.click()
+            compare(customKeyboard.uppercase, false)
+            compare(caseKey.text, "\u21e9  aa")
+            compare(aKey.text, "a")
+            aKey.click()
+            spaceKey.click()
+            tryCompare(input, "text", "Aa ")
+            backspaceKey.click()
+            tryCompare(input, "text", "Aa")
+
+            enterKey.click()
+            tryCompare(slateField("scene").input, "activeFocus", true)
+            tryCompare(customKeyboard, "numberMode", true)
+
+            focusInput("production")
+            tryCompare(customKeyboard, "numberMode", false)
+            const activeDismissKey = findDescendant(customKeyboard,
+                                                    "sceneTakeKeyDismiss")
+            activeDismissKey.click()
+            tryCompare(input, "activeFocus", false)
+            tryCompare(customKeyboard, "visible", false)
         }
 
         function test_pasteAndSelection() {
@@ -435,10 +612,37 @@ Item {
             }
 
             const production = slateField("production")
+            const incrementTake = findChild(slateWindow, "incrementTakeButton")
             const settings = findChild(slateWindow, "settingsButton")
-            compare(settings.x - production.x - production.width, 4)
+            verify(incrementTake !== null)
+            compare(incrementTake.x - production.x - production.width, 4)
+            compare(settings.x - incrementTake.x - incrementTake.width, 4)
+            verify(Math.abs(incrementTake.width - settings.width) <= 1)
+            verify(Math.abs(production.width / settings.width - 6) <= 0.1)
             compare(production.x, 0)
             compare(findChild(slateWindow, "productionRow").y, 0)
+        }
+
+        function test_incrementTakeNumberButton() {
+            const input = slateField("take").input
+            const incrementTake = findChild(slateWindow, "incrementTakeButton")
+            verify(incrementTake !== null)
+            compare(incrementTake.text, "+")
+
+            const cases = [
+                { value: "", expected: "1" },
+                { value: "009", expected: "010" },
+                { value: "12A", expected: "13A" },
+                { value: "A12B03", expected: "A12B04" },
+                { value: "ALPHA", expected: "ALPHA1" },
+                { value: "999", expected: "1000" },
+                { value: "1A2B3", expected: "1A2B4" }
+            ]
+            for (let i = 0; i < cases.length; ++i) {
+                input.text = cases[i].value
+                incrementTake.click()
+                compare(input.text, cases[i].expected)
+            }
         }
 
         function test_notesWrapsBeforeShrinking() {
@@ -575,6 +779,7 @@ Item {
                 verify(slateField(requiredFields[i]) !== null)
 
             verify(findChild(slateWindow, "settingsButton") !== null)
+            verify(findChild(slateWindow, "incrementTakeButton") !== null)
             verify(findChild(slateWindow, "syncToggle") !== null)
             compare(slateWindow.currentScreen, 0)
 

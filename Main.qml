@@ -11,8 +11,23 @@ ApplicationWindow {
     property var brightnessController: null
     property bool darkMode: true
     property int currentScreen: 0
-    readonly property bool sceneTakeInputActive: sceneField.input.activeFocus
-                                                  || takeField.input.activeFocus
+    readonly property Item activeSlateInput: productionField.input.activeFocus
+                                               ? productionField.input
+                                               : sceneField.input.activeFocus
+                                                 ? sceneField.input
+                                                 : takeField.input.activeFocus
+                                                   ? takeField.input
+                                                   : rollField.input.activeFocus
+                                                     ? rollField.input
+                                                     : dateField.input.activeFocus
+                                                       ? dateField.input
+                                                       : notesField.input.activeFocus
+                                                         ? notesField.input
+                                                         : null
+    readonly property bool slateInputActive: activeSlateInput !== null
+    readonly property bool activeInputPrefersNumbers: sceneField.input.activeFocus
+                                                       || takeField.input.activeFocus
+                                                       || dateField.input.activeFocus
 
     readonly property color pageColor: darkMode ? "#0d0f10" : "#e8e7e2"
     readonly property color surfaceColor: darkMode ? "#191c1f" : "#f8f7f2"
@@ -35,6 +50,39 @@ ApplicationWindow {
         if (focusedItem)
             focusedItem.focus = false
         InputMethod.hide()
+    }
+
+    function incrementDigitString(digits) {
+        let carry = 1
+        let result = ""
+        for (let index = digits.length - 1; index >= 0; --index) {
+            const value = digits.charCodeAt(index) - 48 + carry
+            result = String(value % 10) + result
+            carry = value >= 10 ? 1 : 0
+        }
+        return carry ? "1" + result : result
+    }
+
+    function incrementTakeNumber() {
+        const currentText = takeField.text
+        const numberPattern = /\d+/g
+        let match = null
+        let lastMatch = null
+        while ((match = numberPattern.exec(currentText)) !== null)
+            lastMatch = match
+
+        if (!lastMatch) {
+            takeField.text = currentText + "1"
+        } else {
+            const digits = lastMatch[0]
+            const incremented = incrementDigitString(digits)
+            takeField.text = currentText.slice(0, lastMatch.index)
+                    + incremented
+                    + currentText.slice(lastMatch.index + digits.length)
+        }
+
+        if (takeField.input.activeFocus)
+            takeField.input.cursorPosition = takeField.text.length
     }
 
     function openSettings() {
@@ -65,8 +113,7 @@ ApplicationWindow {
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: sceneTakeKeyboard.visible
-                                      ? sceneTakeKeyboard.height
-                                      : inputPanel.active ? inputPanel.height : 0
+                                      ? sceneTakeKeyboard.height : 0
                 clip: true
                 contentWidth: width
                 contentHeight: slate.height
@@ -132,8 +179,47 @@ ApplicationWindow {
                                 nextInput: sceneField.input
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
-                                Layout.preferredWidth: 3
-                                Layout.horizontalStretchFactor: 3
+                                Layout.preferredWidth: 6
+                                Layout.horizontalStretchFactor: 6
+                            }
+
+                            Button {
+                                id: incrementTakeButton
+                                objectName: "incrementTakeButton"
+                                text: "+"
+
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+                                Layout.preferredWidth: 1
+                                Layout.horizontalStretchFactor: 1
+                                hoverEnabled: true
+                                Accessible.name: qsTr("Increment take number")
+
+                                contentItem: Label {
+                                    text: incrementTakeButton.text
+                                    color: incrementTakeButton.down
+                                           ? "#171819" : window.primaryTextColor
+                                    font.pixelSize: Math.max(
+                                        30, Math.min(58, incrementTakeButton.height * 0.5))
+                                    font.weight: Font.Light
+                                    horizontalAlignment: Text.AlignHCenter
+                                    verticalAlignment: Text.AlignVCenter
+                                }
+
+                                background: Rectangle {
+                                    color: incrementTakeButton.down
+                                           ? window.accentColor
+                                           : incrementTakeButton.hovered
+                                             ? window.raisedSurfaceColor
+                                             : window.surfaceColor
+                                    border.width: 1
+                                    border.color: incrementTakeButton.activeFocus
+                                                  ? window.accentColor
+                                                  : window.outlineColor
+                                    radius: 3
+                                }
+
+                                onClicked: window.incrementTakeNumber()
                             }
 
                             Button {
@@ -600,7 +686,7 @@ ApplicationWindow {
         width: Math.min(window.width, 960)
         x: (window.width - width) / 2
         y: active ? window.height - height : window.height
-        visible: active && !window.sceneTakeInputActive
+        visible: false
     }
 
     SceneTakeKeyboard {
@@ -609,11 +695,16 @@ ApplicationWindow {
 
         z: 10
         darkMode: window.darkMode
+        inputTarget: window.activeSlateInput
+        preferNumberMode: window.activeInputPrefersNumbers
         width: Math.min(window.width, 960)
         height: inputPanel.height
         x: (window.width - width) / 2
         y: visible ? window.height - height : window.height
-        visible: inputPanel.active && window.sceneTakeInputActive
+        visible: inputPanel.active && window.slateInputActive
+                 && window.currentScreen === 0
+
+        onDismissRequested: window.dismissKeyboard()
     }
 
 }
