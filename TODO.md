@@ -9,6 +9,7 @@
   (`ddcutil getvcp 10` / `ddcutil setvcp 10 <0-100>`). The control stays
   disabled unless the physical display returns a valid brightness value.
 - [x] Date input uses a numeric `MM/DD/YY` mask.
-- [x] Scene and Take open on the numpad while retaining letter input support.
+- [x] Scene and Take use a dedicated numpad/QWERTY keyboard with an internal
+  layout switch.
 
 Reference: https://www.waveshare.com/wiki/8DP-CAPLCD#Linux_Software_Brightness_Adjustment

@@ -7,10 +7,18 @@
                     "entries": [
                         {
                             "codegenResult": 0,
+                            "column": 50,
+                            "durationMicroseconds": 0,
+                            "functionName": "sceneTakeInputActive",
+                            "line": 14,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "pageColor",
-                            "line": 15,
+                            "line": 17,
                             "message": ""
                         },
                         {
@@ -18,22 +26,6 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "surfaceColor",
-                            "line": 16,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 49,
-                            "durationMicroseconds": 0,
-                            "functionName": "raisedSurfaceColor",
-                            "line": 17,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 47,
-                            "durationMicroseconds": 0,
-                            "functionName": "primaryTextColor",
                             "line": 18,
                             "message": ""
                         },
@@ -41,8 +33,24 @@
                             "codegenResult": 0,
                             "column": 49,
                             "durationMicroseconds": 0,
-                            "functionName": "secondaryTextColor",
+                            "functionName": "raisedSurfaceColor",
                             "line": 19,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 47,
+                            "durationMicroseconds": 0,
+                            "functionName": "primaryTextColor",
+                            "line": 20,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 49,
+                            "durationMicroseconds": 0,
+                            "functionName": "secondaryTextColor",
+                            "line": 21,
                             "message": ""
                         },
                         {
@@ -50,7 +58,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "outlineColor",
-                            "line": 20,
+                            "line": 22,
                             "message": ""
                         },
                         {
@@ -58,7 +66,7 @@
                             "column": 12,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 29,
+                            "line": 31,
                             "message": ""
                         },
                         {
@@ -66,7 +74,7 @@
                             "column": 5,
                             "durationMicroseconds": 0,
                             "functionName": "dismissKeyboard",
-                            "line": 31,
+                            "line": 33,
                             "message": ""
                         },
                         {
@@ -74,7 +82,7 @@
                             "column": 5,
                             "durationMicroseconds": 0,
                             "functionName": "openSettings",
-                            "line": 38,
+                            "line": 40,
                             "message": "Cannot generate efficient code for call to untyped JavaScript function"
                         },
                         {
@@ -82,7 +90,7 @@
                             "column": 5,
                             "durationMicroseconds": 0,
                             "functionName": "closeSettings",
-                            "line": 45,
+                            "line": 47,
                             "message": ""
                         },
                         {
@@ -90,7 +98,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "currentIndex",
-                            "line": 51,
+                            "line": 53,
                             "message": ""
                         },
                         {
@@ -98,7 +106,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 50,
+                            "line": 52,
                             "message": ""
                         },
                         {
@@ -106,7 +114,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "contentWidth",
-                            "line": 67,
+                            "line": 71,
                             "message": ""
                         },
                         {
@@ -114,7 +122,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "contentHeight",
-                            "line": 68,
+                            "line": 72,
                             "message": ""
                         },
                         {
@@ -122,7 +130,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "flickableDirection",
-                            "line": 69,
+                            "line": 73,
                             "message": ""
                         },
                         {
@@ -130,7 +138,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "boundsBehavior",
-                            "line": 70,
+                            "line": 74,
                             "message": ""
                         },
                         {
@@ -138,7 +146,7 @@
                             "column": 17,
                             "durationMicroseconds": 0,
                             "functionName": "revealInput",
-                            "line": 74,
+                            "line": 78,
                             "message": "Functions without type annotations won't be compiled"
                         },
                         {
@@ -146,7 +154,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "onHeightChanged",
-                            "line": 92,
+                            "line": 96,
                             "message": "Cannot generate efficient code for LoadClosure"
                         },
                         {
@@ -154,7 +162,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "left",
-                            "line": 61,
+                            "line": 63,
                             "message": ""
                         },
                         {
@@ -162,7 +170,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "right",
-                            "line": 62,
+                            "line": 64,
                             "message": ""
                         },
                         {
@@ -170,7 +178,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "top",
-                            "line": 63,
+                            "line": 65,
                             "message": ""
                         },
                         {
@@ -178,7 +186,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "bottom",
-                            "line": 64,
+                            "line": 66,
                             "message": ""
                         },
                         {
@@ -186,7 +194,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "bottomMargin",
-                            "line": 65,
+                            "line": 67,
                             "message": ""
                         },
                         {
@@ -194,7 +202,7 @@
                             "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "policy",
-                            "line": 97,
+                            "line": 101,
                             "message": ""
                         },
                         {
@@ -202,7 +210,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 104,
+                            "line": 108,
                             "message": ""
                         },
                         {
@@ -210,7 +218,7 @@
                             "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 105,
+                            "line": 109,
                             "message": ""
                         },
                         {
@@ -218,7 +226,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 106,
+                            "line": 110,
                             "message": ""
                         },
                         {
@@ -226,7 +234,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 111,
+                            "line": 115,
                             "message": ""
                         },
                         {
@@ -234,7 +242,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "darkMode",
-                            "line": 127,
+                            "line": 131,
                             "message": ""
                         },
                         {
@@ -242,7 +250,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "nextInput",
-                            "line": 128,
+                            "line": 132,
                             "message": ""
                         },
                         {
@@ -250,7 +258,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 185,
+                            "line": 189,
                             "message": ""
                         },
                         {
@@ -258,7 +266,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 152,
+                            "line": 156,
                             "message": ""
                         },
                         {
@@ -266,7 +274,7 @@
                             "column": 52,
                             "durationMicroseconds": 0,
                             "functionName": "holeColor",
-                            "line": 153,
+                            "line": 157,
                             "message": ""
                         },
                         {
@@ -274,7 +282,7 @@
                             "column": 59,
                             "durationMicroseconds": 0,
                             "functionName": "alignment",
-                            "line": 157,
+                            "line": 161,
                             "message": ""
                         },
                         {
@@ -282,7 +290,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 164,
+                            "line": 168,
                             "message": ""
                         },
                         {
@@ -290,7 +298,7 @@
                             "column": 54,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 166,
+                            "line": 170,
                             "message": ""
                         },
                         {
@@ -298,7 +306,7 @@
                             "column": 59,
                             "durationMicroseconds": 0,
                             "functionName": "alignment",
-                            "line": 168,
+                            "line": 172,
                             "message": ""
                         },
                         {
@@ -306,7 +314,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 175,
+                            "line": 179,
                             "message": ""
                         },
                         {
@@ -314,7 +322,7 @@
                             "column": 51,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 180,
+                            "line": 184,
                             "message": ""
                         },
                         {
@@ -322,7 +330,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "darkMode",
-                            "line": 201,
+                            "line": 205,
                             "message": ""
                         },
                         {
@@ -330,7 +338,7 @@
                             "column": 51,
                             "durationMicroseconds": 0,
                             "functionName": "inputMethodHints",
-                            "line": 204,
+                            "line": 208,
                             "message": ""
                         },
                         {
@@ -338,7 +346,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "nextInput",
-                            "line": 207,
+                            "line": 211,
                             "message": ""
                         },
                         {
@@ -346,7 +354,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "darkMode",
-                            "line": 218,
+                            "line": 222,
                             "message": ""
                         },
                         {
@@ -354,7 +362,7 @@
                             "column": 51,
                             "durationMicroseconds": 0,
                             "functionName": "inputMethodHints",
-                            "line": 221,
+                            "line": 225,
                             "message": ""
                         },
                         {
@@ -362,7 +370,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "nextInput",
-                            "line": 224,
+                            "line": 228,
                             "message": ""
                         },
                         {
@@ -370,7 +378,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "darkMode",
-                            "line": 244,
+                            "line": 248,
                             "message": ""
                         },
                         {
@@ -378,7 +386,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "nextInput",
-                            "line": 246,
+                            "line": 250,
                             "message": ""
                         },
                         {
@@ -386,31 +394,31 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "darkMode",
-                            "line": 257,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 51,
-                            "durationMicroseconds": 0,
-                            "functionName": "inputMethodHints",
-                            "line": 260,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 44,
-                            "durationMicroseconds": 0,
-                            "functionName": "nextInput",
                             "line": 261,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
+                            "column": 51,
+                            "durationMicroseconds": 0,
+                            "functionName": "inputMethodHints",
+                            "line": 264,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 44,
+                            "durationMicroseconds": 0,
+                            "functionName": "nextInput",
+                            "line": 265,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "darkMode",
-                            "line": 281,
+                            "line": 285,
                             "message": ""
                         },
                         {
@@ -418,7 +426,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 320,
+                            "line": 324,
                             "message": ""
                         },
                         {
@@ -426,38 +434,6 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 301,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 44,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 302,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 58,
-                            "durationMicroseconds": 0,
-                            "functionName": "horizontalAlignment",
-                            "line": 307,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 56,
-                            "durationMicroseconds": 0,
-                            "functionName": "verticalAlignment",
-                            "line": 308,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 50,
-                            "durationMicroseconds": 0,
-                            "functionName": "weight",
                             "line": 305,
                             "message": ""
                         },
@@ -466,7 +442,39 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "color",
+                            "line": 306,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 58,
+                            "durationMicroseconds": 0,
+                            "functionName": "horizontalAlignment",
+                            "line": 311,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 56,
+                            "durationMicroseconds": 0,
+                            "functionName": "verticalAlignment",
                             "line": 312,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 50,
+                            "durationMicroseconds": 0,
+                            "functionName": "weight",
+                            "line": 309,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 44,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 316,
                             "message": ""
                         },
                         {
@@ -474,7 +482,7 @@
                             "column": 51,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 315,
+                            "line": 319,
                             "message": ""
                         },
                         {
@@ -482,7 +490,7 @@
                             "column": 20,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 331,
+                            "line": 335,
                             "message": ""
                         },
                         {
@@ -490,7 +498,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 334,
+                            "line": 338,
                             "message": ""
                         },
                         {
@@ -498,7 +506,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "margins",
-                            "line": 335,
+                            "line": 339,
                             "message": ""
                         },
                         {
@@ -506,7 +514,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 369,
+                            "line": 373,
                             "message": ""
                         },
                         {
@@ -514,7 +522,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 350,
+                            "line": 354,
                             "message": ""
                         },
                         {
@@ -522,7 +530,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 351,
+                            "line": 355,
                             "message": ""
                         },
                         {
@@ -530,7 +538,7 @@
                             "column": 50,
                             "durationMicroseconds": 0,
                             "functionName": "horizontalAlignment",
-                            "line": 355,
+                            "line": 359,
                             "message": ""
                         },
                         {
@@ -538,7 +546,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "verticalAlignment",
-                            "line": 356,
+                            "line": 360,
                             "message": ""
                         },
                         {
@@ -546,7 +554,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 353,
+                            "line": 357,
                             "message": ""
                         },
                         {
@@ -554,7 +562,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 362,
+                            "line": 366,
                             "message": ""
                         },
                         {
@@ -562,7 +570,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 364,
+                            "line": 368,
                             "message": ""
                         },
                         {
@@ -570,7 +578,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 374,
+                            "line": 378,
                             "message": ""
                         },
                         {
@@ -578,7 +586,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 376,
+                            "line": 380,
                             "message": ""
                         },
                         {
@@ -586,7 +594,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 385,
+                            "line": 389,
                             "message": ""
                         },
                         {
@@ -594,7 +602,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 387,
+                            "line": 391,
                             "message": ""
                         },
                         {
@@ -602,7 +610,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 391,
+                            "line": 395,
                             "message": ""
                         },
                         {
@@ -610,7 +618,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 400,
+                            "line": 404,
                             "message": ""
                         },
                         {
@@ -618,7 +626,7 @@
                             "column": 46,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 402,
+                            "line": 406,
                             "message": ""
                         },
                         {
@@ -626,7 +634,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 408,
+                            "line": 412,
                             "message": ""
                         },
                         {
@@ -634,7 +642,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 410,
+                            "line": 414,
                             "message": ""
                         },
                         {
@@ -642,7 +650,7 @@
                             "column": 46,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 413,
+                            "line": 417,
                             "message": ""
                         },
                         {
@@ -650,7 +658,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "value",
-                            "line": 423,
+                            "line": 427,
                             "message": "Cannot load property brightness from Main::brightnessController with type QVariant."
                         },
                         {
@@ -658,7 +666,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "enabled",
-                            "line": 425,
+                            "line": 429,
                             "message": "Cannot load property available from Main::brightnessController with type QVariant."
                         },
                         {
@@ -666,7 +674,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "opacity",
-                            "line": 427,
+                            "line": 431,
                             "message": ""
                         },
                         {
@@ -674,7 +682,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "onMoved",
-                            "line": 463,
+                            "line": 467,
                             "message": ""
                         },
                         {
@@ -682,7 +690,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "x",
-                            "line": 432,
+                            "line": 436,
                             "message": ""
                         },
                         {
@@ -690,7 +698,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "y",
-                            "line": 433,
+                            "line": 437,
                             "message": ""
                         },
                         {
@@ -698,7 +706,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 435,
+                            "line": 439,
                             "message": ""
                         },
                         {
@@ -706,7 +714,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 438,
+                            "line": 442,
                             "message": ""
                         },
                         {
@@ -714,7 +722,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 441,
+                            "line": 445,
                             "message": ""
                         },
                         {
@@ -722,7 +730,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 442,
+                            "line": 446,
                             "message": ""
                         },
                         {
@@ -730,7 +738,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "radius",
-                            "line": 443,
+                            "line": 447,
                             "message": "Cannot load property radius from (component in C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/Main.qml)::parent with type QQuickItem."
                         },
                         {
@@ -738,7 +746,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 444,
+                            "line": 448,
                             "message": ""
                         },
                         {
@@ -746,7 +754,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "x",
-                            "line": 449,
+                            "line": 453,
                             "message": ""
                         },
                         {
@@ -754,7 +762,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "y",
-                            "line": 452,
+                            "line": 456,
                             "message": ""
                         },
                         {
@@ -762,7 +770,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 457,
+                            "line": 461,
                             "message": ""
                         },
                         {
@@ -770,7 +778,7 @@
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 460,
+                            "line": 464,
                             "message": ""
                         },
                         {
@@ -778,7 +786,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 467,
+                            "line": 471,
                             "message": "Cannot load property status from Main::brightnessController with type QVariant."
                         },
                         {
@@ -786,7 +794,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 470,
+                            "line": 474,
                             "message": ""
                         },
                         {
@@ -794,7 +802,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "wrapMode",
-                            "line": 473,
+                            "line": 477,
                             "message": ""
                         },
                         {
@@ -802,7 +810,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 481,
+                            "line": 485,
                             "message": ""
                         },
                         {
@@ -810,7 +818,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 483,
+                            "line": 487,
                             "message": ""
                         },
                         {
@@ -818,7 +826,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 487,
+                            "line": 491,
                             "message": ""
                         },
                         {
@@ -826,7 +834,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 497,
+                            "line": 501,
                             "message": ""
                         },
                         {
@@ -834,7 +842,7 @@
                             "column": 46,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 499,
+                            "line": 503,
                             "message": ""
                         },
                         {
@@ -842,7 +850,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 504,
+                            "line": 508,
                             "message": ""
                         },
                         {
@@ -850,7 +858,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 505,
+                            "line": 509,
                             "message": ""
                         },
                         {
@@ -858,7 +866,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "checked",
-                            "line": 513,
+                            "line": 517,
                             "message": ""
                         },
                         {
@@ -866,7 +874,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 514,
+                            "line": 518,
                             "message": ""
                         },
                         {
@@ -874,7 +882,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "onToggled",
-                            "line": 550,
+                            "line": 554,
                             "message": ""
                         },
                         {
@@ -882,7 +890,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "x",
-                            "line": 520,
+                            "line": 524,
                             "message": ""
                         },
                         {
@@ -890,7 +898,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "y",
-                            "line": 521,
+                            "line": 525,
                             "message": ""
                         },
                         {
@@ -898,7 +906,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 523,
+                            "line": 527,
                             "message": ""
                         },
                         {
@@ -906,7 +914,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "x",
-                            "line": 527,
+                            "line": 531,
                             "message": ""
                         },
                         {
@@ -914,7 +922,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 532,
+                            "line": 536,
                             "message": ""
                         },
                         {
@@ -922,7 +930,7 @@
                             "column": 46,
                             "durationMicroseconds": 0,
                             "functionName": "leftPadding",
-                            "line": 541,
+                            "line": 545,
                             "message": ""
                         },
                         {
@@ -930,7 +938,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 542,
+                            "line": 546,
                             "message": ""
                         },
                         {
@@ -938,7 +946,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 543,
+                            "line": 547,
                             "message": ""
                         },
                         {
@@ -946,7 +954,7 @@
                             "column": 52,
                             "durationMicroseconds": 0,
                             "functionName": "verticalAlignment",
-                            "line": 547,
+                            "line": 551,
                             "message": ""
                         },
                         {
@@ -954,7 +962,7 @@
                             "column": 46,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 545,
+                            "line": 549,
                             "message": ""
                         },
                         {
@@ -962,7 +970,7 @@
                             "column": 22,
                             "durationMicroseconds": 0,
                             "functionName": "onTriggered",
-                            "line": 564,
+                            "line": 568,
                             "message": "Cannot load property available from Main::brightnessController with type QVariant."
                         },
                         {
@@ -970,7 +978,7 @@
                             "column": 17,
                             "durationMicroseconds": 0,
                             "functionName": "target",
-                            "line": 571,
+                            "line": 575,
                             "message": ""
                         },
                         {
@@ -978,7 +986,7 @@
                             "column": 9,
                             "durationMicroseconds": 0,
                             "functionName": "onActiveFocusItemChanged",
-                            "line": 573,
+                            "line": 577,
                             "message": "Cannot generate efficient code for LoadClosure"
                         },
                         {
@@ -986,7 +994,7 @@
                             "column": 17,
                             "durationMicroseconds": 0,
                             "functionName": "target",
-                            "line": 581,
+                            "line": 585,
                             "message": ""
                         },
                         {
@@ -994,7 +1002,7 @@
                             "column": 9,
                             "durationMicroseconds": 0,
                             "functionName": "onCursorRectangleChanged",
-                            "line": 584,
+                            "line": 588,
                             "message": "Cannot generate efficient code for LoadClosure"
                         },
                         {
@@ -1002,7 +1010,7 @@
                             "column": 16,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 596,
+                            "line": 600,
                             "message": ""
                         },
                         {
@@ -1010,7 +1018,7 @@
                             "column": 12,
                             "durationMicroseconds": 0,
                             "functionName": "x",
-                            "line": 597,
+                            "line": 601,
                             "message": ""
                         },
                         {
@@ -1018,7 +1026,7 @@
                             "column": 12,
                             "durationMicroseconds": 0,
                             "functionName": "y",
-                            "line": 598,
+                            "line": 602,
                             "message": ""
                         },
                         {
@@ -1026,7 +1034,55 @@
                             "column": 18,
                             "durationMicroseconds": 0,
                             "functionName": "visible",
-                            "line": 599,
+                            "line": 603,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 19,
+                            "durationMicroseconds": 0,
+                            "functionName": "darkMode",
+                            "line": 611,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 16,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 612,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 17,
+                            "durationMicroseconds": 0,
+                            "functionName": "height",
+                            "line": 613,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 12,
+                            "durationMicroseconds": 0,
+                            "functionName": "x",
+                            "line": 614,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 12,
+                            "durationMicroseconds": 0,
+                            "functionName": "y",
+                            "line": 615,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 18,
+                            "durationMicroseconds": 0,
+                            "functionName": "visible",
+                            "line": 616,
                             "message": ""
                         }
                     ],

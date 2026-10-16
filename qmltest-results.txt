@@ -35,5 +35,5 @@ PASS   : qmltestrunner::SlateFontFit::test_shrinkAndRestore(take)
 PASS   : qmltestrunner::SlateFontFit::test_singleLineNextBehaviorUnchanged()
 PASS   : qmltestrunner::SlateFontFit::test_virtualKeyboardTypingAndDeletion()
 PASS   : qmltestrunner::SlateFontFit::cleanupTestCase()
-Totals: 33 passed, 0 failed, 0 skipped, 0 blacklisted, 8209ms
+Totals: 33 passed, 0 failed, 0 skipped, 0 blacklisted, 8239ms
 ********* Finished testing of qmltestrunner *********

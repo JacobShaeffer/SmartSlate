@@ -71,6 +71,7 @@ CMakeFiles/appSmartSlate_qmllint_json: C:/Users/Jacob/Projects/SmartSlate/Qt\ us
 CMakeFiles/appSmartSlate_qmllint_json: C:/Users/Jacob/Projects/SmartSlate/Qt\ user\ interface/SmartSlate/SlateNotesField.qml
 CMakeFiles/appSmartSlate_qmllint_json: C:/Users/Jacob/Projects/SmartSlate/Qt\ user\ interface/SmartSlate/VerticalFieldLabel.qml
 CMakeFiles/appSmartSlate_qmllint_json: C:/Users/Jacob/Projects/SmartSlate/Qt\ user\ interface/SmartSlate/GearIcon.qml
+CMakeFiles/appSmartSlate_qmllint_json: C:/Users/Jacob/Projects/SmartSlate/Qt\ user\ interface/SmartSlate/SceneTakeKeyboard.qml
 CMakeFiles/appSmartSlate_qmllint_json: .rcc/qmllint/appSmartSlate_json.rsp
 	cd /d C:\Users\Jacob\Projects\SMARTS~1\QTUSER~1\SMARTS~1 && call "C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\.qt\bin\qt_setup_tool_path.bat" C:/Qt/6.12.0/mingw_64/bin/qmllint.exe "@C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmllint/appSmartSlate_json.rsp"
 

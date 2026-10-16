@@ -6,5 +6,6 @@ SlateField 254.0 SlateField.qml
 SlateNotesField 254.0 SlateNotesField.qml
 VerticalFieldLabel 254.0 VerticalFieldLabel.qml
 GearIcon 254.0 GearIcon.qml
+SceneTakeKeyboard 254.0 SceneTakeKeyboard.qml
 depends QtQuick
 

@@ -11,6 +11,7 @@ f2bdc91432d6cafd863b3455e8e74471 .qt/qtconf_list.done
 33bde041f1ea036e5fffaed74064d72b .rcc/qmlcache/all_aotstats.aotstats
 83e0a178c487bb14d7c829349bb4caa8 .rcc/qmlcache/appSmartSlate_GearIcon_qml.cpp
 eca7d31feb5572ec1af5049de8994b89 .rcc/qmlcache/appSmartSlate_Main_qml.cpp
+9e766f646f6cdd66c72c2e15fc761050 .rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp
 5e48e7bd259268d3dde64d2e4d84875a .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp
 dff91148bfa239dd9d7f1b0e49a76145 .rcc/qmlcache/appSmartSlate_SlateNotesField_qml.cpp
 852d00c7657ec282e70cf7f277f2be5b .rcc/qmlcache/appSmartSlate_VerticalFieldLabel_qml.cpp

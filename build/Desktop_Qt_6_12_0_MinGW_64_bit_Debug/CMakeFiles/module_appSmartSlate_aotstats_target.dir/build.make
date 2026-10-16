@@ -72,6 +72,7 @@ CMakeFiles/module_appSmartSlate_aotstats_target: .rcc/qmlcache/module_appSmartSl
 .rcc/qmlcache/module_appSmartSlate.aotstats: .rcc/qmlcache/appSmartSlate_SlateNotesField_qml.cpp.aotstats
 .rcc/qmlcache/module_appSmartSlate.aotstats: .rcc/qmlcache/appSmartSlate_VerticalFieldLabel_qml.cpp.aotstats
 .rcc/qmlcache/module_appSmartSlate.aotstats: .rcc/qmlcache/appSmartSlate_GearIcon_qml.cpp.aotstats
+.rcc/qmlcache/module_appSmartSlate.aotstats: .rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp.aotstats
 .rcc/qmlcache/module_appSmartSlate.aotstats: .rcc/qmlcache/module_appSmartSlate.aotstatslist
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Generating .rcc/qmlcache/module_appSmartSlate.aotstats"
 	call .qt\bin\qt_setup_tool_path.bat C:/Qt/6.12.0/mingw_64/bin/qmlaotstats.exe aggregate "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/module_appSmartSlate.aotstatslist" "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/module_appSmartSlate.aotstats"
@@ -102,13 +103,26 @@ CMakeFiles/module_appSmartSlate_aotstats_target: .rcc/qmlcache/module_appSmartSl
 .rcc/qmlcache/appSmartSlate_Main_qml.cpp.aotstats: .rcc/qmlcache/appSmartSlate_Main_qml.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate .rcc\qmlcache\appSmartSlate_Main_qml.cpp.aotstats
 
+.rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp: C:/Qt/6.12.0/mingw_64/bin/qmlcachegen.exe
+.rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp: C:/Users/Jacob/Projects/SmartSlate/Qt\ user\ interface/SmartSlate/SceneTakeKeyboard.qml
+.rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp: .qt/rcc/qmake_SmartSlate.qrc
+.rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp: .qt/rcc/appSmartSlate_raw_qml_0.qrc
+.rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp: SmartSlate/appSmartSlate.qmltypes
+.rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp: SmartSlate/qmldir
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Generating .rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp, .rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp.aotstats"
+	C:\Qt\Tools\CMake_64\bin\cmake.exe -E make_directory "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache"
+	call .qt\bin\qt_setup_tool_path.bat C:/Qt/6.12.0/mingw_64/bin/qmlcachegen.exe --bare --resource-path /qt/qml/SmartSlate/SceneTakeKeyboard.qml -I "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug" -I C:/Qt/6.12.0/mingw_64/qml -i "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/SmartSlate/qmldir" --resource "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qmake_SmartSlate.qrc" --resource "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/appSmartSlate_raw_qml_0.qrc" --dump-aot-stats --module-id=SmartSlate(appSmartSlate) -o "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp" "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/SceneTakeKeyboard.qml"
+
+.rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp.aotstats: .rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp
+	@$(CMAKE_COMMAND) -E touch_nocreate .rcc\qmlcache\appSmartSlate_SceneTakeKeyboard_qml.cpp.aotstats
+
 .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp: C:/Qt/6.12.0/mingw_64/bin/qmlcachegen.exe
 .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp: C:/Users/Jacob/Projects/SmartSlate/Qt\ user\ interface/SmartSlate/SlateField.qml
 .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp: .qt/rcc/qmake_SmartSlate.qrc
 .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp: .qt/rcc/appSmartSlate_raw_qml_0.qrc
 .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp: SmartSlate/appSmartSlate.qmltypes
 .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp: SmartSlate/qmldir
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Generating .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp, .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.aotstats"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Generating .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp, .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.aotstats"
 	C:\Qt\Tools\CMake_64\bin\cmake.exe -E make_directory "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache"
 	call .qt\bin\qt_setup_tool_path.bat C:/Qt/6.12.0/mingw_64/bin/qmlcachegen.exe --bare --resource-path /qt/qml/SmartSlate/SlateField.qml -I "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug" -I C:/Qt/6.12.0/mingw_64/qml -i "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/SmartSlate/qmldir" --resource "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qmake_SmartSlate.qrc" --resource "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/appSmartSlate_raw_qml_0.qrc" --dump-aot-stats --module-id=SmartSlate(appSmartSlate) -o "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateField_qml.cpp" "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/SlateField.qml"
 
@@ -121,7 +135,7 @@ CMakeFiles/module_appSmartSlate_aotstats_target: .rcc/qmlcache/module_appSmartSl
 .rcc/qmlcache/appSmartSlate_SlateNotesField_qml.cpp: .qt/rcc/appSmartSlate_raw_qml_0.qrc
 .rcc/qmlcache/appSmartSlate_SlateNotesField_qml.cpp: SmartSlate/appSmartSlate.qmltypes
 .rcc/qmlcache/appSmartSlate_SlateNotesField_qml.cpp: SmartSlate/qmldir
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Generating .rcc/qmlcache/appSmartSlate_SlateNotesField_qml.cpp, .rcc/qmlcache/appSmartSlate_SlateNotesField_qml.cpp.aotstats"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Generating .rcc/qmlcache/appSmartSlate_SlateNotesField_qml.cpp, .rcc/qmlcache/appSmartSlate_SlateNotesField_qml.cpp.aotstats"
 	C:\Qt\Tools\CMake_64\bin\cmake.exe -E make_directory "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache"
 	call .qt\bin\qt_setup_tool_path.bat C:/Qt/6.12.0/mingw_64/bin/qmlcachegen.exe --bare --resource-path /qt/qml/SmartSlate/SlateNotesField.qml -I "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug" -I C:/Qt/6.12.0/mingw_64/qml -i "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/SmartSlate/qmldir" --resource "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qmake_SmartSlate.qrc" --resource "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/appSmartSlate_raw_qml_0.qrc" --dump-aot-stats --module-id=SmartSlate(appSmartSlate) -o "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateNotesField_qml.cpp" "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/SlateNotesField.qml"
 
@@ -134,7 +148,7 @@ CMakeFiles/module_appSmartSlate_aotstats_target: .rcc/qmlcache/module_appSmartSl
 .rcc/qmlcache/appSmartSlate_VerticalFieldLabel_qml.cpp: .qt/rcc/appSmartSlate_raw_qml_0.qrc
 .rcc/qmlcache/appSmartSlate_VerticalFieldLabel_qml.cpp: SmartSlate/appSmartSlate.qmltypes
 .rcc/qmlcache/appSmartSlate_VerticalFieldLabel_qml.cpp: SmartSlate/qmldir
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Generating .rcc/qmlcache/appSmartSlate_VerticalFieldLabel_qml.cpp, .rcc/qmlcache/appSmartSlate_VerticalFieldLabel_qml.cpp.aotstats"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Generating .rcc/qmlcache/appSmartSlate_VerticalFieldLabel_qml.cpp, .rcc/qmlcache/appSmartSlate_VerticalFieldLabel_qml.cpp.aotstats"
 	C:\Qt\Tools\CMake_64\bin\cmake.exe -E make_directory "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache"
 	call .qt\bin\qt_setup_tool_path.bat C:/Qt/6.12.0/mingw_64/bin/qmlcachegen.exe --bare --resource-path /qt/qml/SmartSlate/VerticalFieldLabel.qml -I "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug" -I C:/Qt/6.12.0/mingw_64/qml -i "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/SmartSlate/qmldir" --resource "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qmake_SmartSlate.qrc" --resource "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/appSmartSlate_raw_qml_0.qrc" --dump-aot-stats --module-id=SmartSlate(appSmartSlate) -o "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_VerticalFieldLabel_qml.cpp" "C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/VerticalFieldLabel.qml"
 
@@ -145,6 +159,8 @@ module_appSmartSlate_aotstats_target: .rcc/qmlcache/appSmartSlate_GearIcon_qml.c
 module_appSmartSlate_aotstats_target: .rcc/qmlcache/appSmartSlate_GearIcon_qml.cpp.aotstats
 module_appSmartSlate_aotstats_target: .rcc/qmlcache/appSmartSlate_Main_qml.cpp
 module_appSmartSlate_aotstats_target: .rcc/qmlcache/appSmartSlate_Main_qml.cpp.aotstats
+module_appSmartSlate_aotstats_target: .rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp
+module_appSmartSlate_aotstats_target: .rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp.aotstats
 module_appSmartSlate_aotstats_target: .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp
 module_appSmartSlate_aotstats_target: .rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.aotstats
 module_appSmartSlate_aotstats_target: .rcc/qmlcache/appSmartSlate_SlateNotesField_qml.cpp

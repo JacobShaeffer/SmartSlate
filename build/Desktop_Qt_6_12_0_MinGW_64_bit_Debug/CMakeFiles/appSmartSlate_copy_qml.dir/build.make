@@ -73,6 +73,7 @@ CMakeFiles/appSmartSlate_copy_qml: .qt/appSmartSlate_qml.txt
 .qt/appSmartSlate_qml.txt: C:/Users/Jacob/Projects/SmartSlate/Qt\ user\ interface/SmartSlate/SlateNotesField.qml
 .qt/appSmartSlate_qml.txt: C:/Users/Jacob/Projects/SmartSlate/Qt\ user\ interface/SmartSlate/VerticalFieldLabel.qml
 .qt/appSmartSlate_qml.txt: C:/Users/Jacob/Projects/SmartSlate/Qt\ user\ interface/SmartSlate/GearIcon.qml
+.qt/appSmartSlate_qml.txt: C:/Users/Jacob/Projects/SmartSlate/Qt\ user\ interface/SmartSlate/SceneTakeKeyboard.qml
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\Jacob\Projects\SmartSlate\Qt user interface\SmartSlate\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Copying appSmartSlate qml sources into build dir"
 	C:\Qt\Tools\CMake_64\bin\cmake.exe "-DFILES_INFO_PATH=C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/appSmartSlate_qml.cmake" -P C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6Qml/Qt6QmlCopyFiles.cmake
 

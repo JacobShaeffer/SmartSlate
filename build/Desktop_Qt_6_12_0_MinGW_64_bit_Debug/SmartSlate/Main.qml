@@ -11,6 +11,8 @@ ApplicationWindow {
     property var brightnessController: null
     property bool darkMode: true
     property int currentScreen: 0
+    readonly property bool sceneTakeInputActive: sceneField.input.activeFocus
+                                                  || takeField.input.activeFocus
 
     readonly property color pageColor: darkMode ? "#0d0f10" : "#e8e7e2"
     readonly property color surfaceColor: darkMode ? "#191c1f" : "#f8f7f2"
@@ -62,7 +64,9 @@ ApplicationWindow {
                 anchors.right: parent.right
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: inputPanel.active ? inputPanel.height : 0
+                anchors.bottomMargin: sceneTakeKeyboard.visible
+                                      ? sceneTakeKeyboard.height
+                                      : inputPanel.active ? inputPanel.height : 0
                 clip: true
                 contentWidth: width
                 contentHeight: slate.height
@@ -596,7 +600,20 @@ ApplicationWindow {
         width: Math.min(window.width, 960)
         x: (window.width - width) / 2
         y: active ? window.height - height : window.height
-        visible: active
+        visible: active && !window.sceneTakeInputActive
+    }
+
+    SceneTakeKeyboard {
+        id: sceneTakeKeyboard
+        objectName: "sceneTakeKeyboard"
+
+        z: 10
+        darkMode: window.darkMode
+        width: Math.min(window.width, 960)
+        height: inputPanel.height
+        x: (window.width - width) / 2
+        y: visible ? window.height - height : window.height
+        visible: inputPanel.active && window.sceneTakeInputActive
     }
 
 }

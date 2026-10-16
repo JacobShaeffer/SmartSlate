@@ -29,12 +29,12 @@
 			"add_dependencies",
 			"_qt_internal_qml_copy_files_to_build_dir",
 			"_qt_internal_write_deferred_qmlls_build_ini_file",
+			"_qt_internal_write_qmldir_part",
 			"_qt_internal_scan_qml_imports",
 			"_qt_internal_generate_deploy_qml_imports_script",
 			"cmake_language",
 			"_qt_internal_finalize_executable",
 			"qt6_finalize_target",
-			"_qt_internal_write_qmldir_part",
 			"add_compile_definitions",
 			"project",
 			"target_include_directories",
@@ -74,8 +74,8 @@
 			"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake",
 			"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
 			"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6Qml/Qt6QmlMacros.cmake:1189:EVAL",
-			"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake:881:EVAL",
 			"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6Qml/Qt6QmlMacros.cmake:1246:EVAL",
+			"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake:881:EVAL",
 			"build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qtcreator/cmake-helper/qtcreator-project.cmake",
 			"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6/QtPublicWindowsHelpers.cmake"
 		],
@@ -111,13 +111,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 45,
+				"line" : 48,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 41,
+				"line" : 44,
 				"parent" : 0
 			},
 			{
@@ -427,23 +427,6 @@
 				"parent" : 61
 			},
 			{
-				"file" : 1,
-				"line" : -1,
-				"parent" : 0
-			},
-			{
-				"command" : 15,
-				"file" : 21,
-				"line" : 1,
-				"parent" : 63
-			},
-			{
-				"command" : 13,
-				"file" : 5,
-				"line" : 1474,
-				"parent" : 64
-			},
-			{
 				"command" : 14,
 				"file" : 5,
 				"line" : 1055,
@@ -453,54 +436,71 @@
 				"command" : 13,
 				"file" : 5,
 				"line" : 3335,
-				"parent" : 66
-			},
-			{
-				"command" : 20,
-				"file" : 22,
-				"line" : 1,
 				"parent" : 63
 			},
 			{
-				"command" : 19,
-				"file" : 0,
-				"line" : 915,
-				"parent" : 68
+				"file" : 1,
+				"line" : -1,
+				"parent" : 0
 			},
 			{
-				"command" : 18,
-				"file" : 0,
-				"line" : 832,
-				"parent" : 69
-			},
-			{
-				"command" : 17,
-				"file" : 0,
-				"line" : 832,
-				"parent" : 70
-			},
-			{
-				"command" : 16,
-				"file" : 5,
-				"line" : 5126,
-				"parent" : 71
+				"command" : 15,
+				"file" : 21,
+				"line" : 1,
+				"parent" : 65
 			},
 			{
 				"command" : 13,
 				"file" : 5,
-				"line" : 4911,
-				"parent" : 72
+				"line" : 1474,
+				"parent" : 66
 			},
 			{
-				"command" : 21,
-				"file" : 23,
+				"command" : 16,
+				"file" : 22,
 				"line" : 2,
-				"parent" : 63
+				"parent" : 65
 			},
 			{
 				"command" : 13,
 				"file" : 5,
 				"line" : 312,
+				"parent" : 68
+			},
+			{
+				"command" : 21,
+				"file" : 23,
+				"line" : 1,
+				"parent" : 65
+			},
+			{
+				"command" : 20,
+				"file" : 0,
+				"line" : 915,
+				"parent" : 70
+			},
+			{
+				"command" : 19,
+				"file" : 0,
+				"line" : 832,
+				"parent" : 71
+			},
+			{
+				"command" : 18,
+				"file" : 0,
+				"line" : 832,
+				"parent" : 72
+			},
+			{
+				"command" : 17,
+				"file" : 5,
+				"line" : 5126,
+				"parent" : 73
+			},
+			{
+				"command" : 13,
+				"file" : 5,
+				"line" : 4911,
 				"parent" : 74
 			},
 			{
@@ -640,6 +640,42 @@
 				"parent" : 90
 			},
 			{
+				"command" : 26,
+				"file" : 5,
+				"line" : 3813,
+				"parent" : 90
+			},
+			{
+				"command" : 26,
+				"file" : 5,
+				"line" : 4005,
+				"parent" : 90
+			},
+			{
+				"command" : 26,
+				"file" : 5,
+				"line" : 3813,
+				"parent" : 90
+			},
+			{
+				"command" : 26,
+				"file" : 5,
+				"line" : 4005,
+				"parent" : 90
+			},
+			{
+				"command" : 26,
+				"file" : 5,
+				"line" : 3813,
+				"parent" : 90
+			},
+			{
+				"command" : 26,
+				"file" : 5,
+				"line" : 4005,
+				"parent" : 90
+			},
+			{
 				"command" : 31,
 				"file" : 5,
 				"line" : 4092,
@@ -649,43 +685,43 @@
 				"command" : 30,
 				"file" : 0,
 				"line" : 419,
-				"parent" : 99
+				"parent" : 105
 			},
 			{
 				"command" : 29,
 				"file" : 0,
 				"line" : 2749,
-				"parent" : 100
+				"parent" : 106
 			},
 			{
 				"command" : 26,
 				"file" : 0,
 				"line" : 2289,
-				"parent" : 101
+				"parent" : 107
 			},
 			{
 				"command" : 34,
 				"file" : 0,
 				"line" : 906,
-				"parent" : 68
+				"parent" : 70
 			},
 			{
 				"command" : 26,
 				"file" : 0,
 				"line" : 2414,
-				"parent" : 103
+				"parent" : 109
 			},
 			{
 				"command" : 35,
 				"file" : 0,
 				"line" : 849,
-				"parent" : 69
+				"parent" : 71
 			},
 			{
 				"command" : 26,
 				"file" : 25,
 				"line" : 126,
-				"parent" : 105
+				"parent" : 111
 			}
 		]
 	},
@@ -841,7 +877,10 @@
 				9,
 				11,
 				13,
-				14
+				15,
+				17,
+				19,
+				20
 			]
 		},
 		{
@@ -1001,27 +1040,27 @@
 			"id" : "appSmartSlate_copy_qml::@6890427a1f51a3e7e1df"
 		},
 		{
-			"backtrace" : 65,
-			"id" : "generate_qmlls_build_ini_file::@6890427a1f51a3e7e1df"
-		},
-		{
-			"backtrace" : 67,
+			"backtrace" : 64,
 			"id" : "appSmartSlate_copy_res::@6890427a1f51a3e7e1df"
 		},
 		{
-			"backtrace" : 73,
+			"backtrace" : 67,
+			"id" : "generate_qmlls_build_ini_file::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 69,
+			"id" : "generate_finalqtconf_appSmartSlate::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 75,
 			"id" : "appSmartSlate_qmlimportscan::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "appSmartSlate_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
 			"backtrace" : 0,
 			"id" : "appSmartSlate_autogen::@6890427a1f51a3e7e1df"
-		},
-		{
-			"backtrace" : 75,
-			"id" : "generate_finalqtconf_appSmartSlate::@6890427a1f51a3e7e1df"
-		},
-		{
-			"id" : "appSmartSlate_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "appSmartSlate::@6890427a1f51a3e7e1df",
@@ -1169,17 +1208,20 @@
 				9,
 				11,
 				13,
-				14,
 				15,
 				17,
 				19,
-				31,
-				32,
-				33,
-				34,
-				35,
-				36,
-				37
+				20,
+				21,
+				23,
+				25,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46
 			]
 		},
 		{
@@ -1190,7 +1232,10 @@
 				2,
 				7,
 				10,
-				12
+				12,
+				14,
+				16,
+				18
 			]
 		},
 		{
@@ -1204,31 +1249,34 @@
 			"name" : "Resources",
 			"sourceIndexes" : 
 			[
-				16
+				22
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				18
+				24
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				20,
-				21,
-				22,
-				23,
-				24,
-				25,
 				26,
 				27,
 				28,
 				29,
-				30
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39
 			]
 		}
 	],
@@ -1311,43 +1359,79 @@
 		},
 		{
 			"backtrace" : 97,
-			"path" : "GearIcon.qml",
+			"path" : "SlateNotesField.qml",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 98,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateNotesField_qml.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 99,
+			"path" : "VerticalFieldLabel.qml",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 100,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_VerticalFieldLabel_qml.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 101,
+			"path" : "GearIcon.qml",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 102,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_GearIcon_qml.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 102,
+			"backtrace" : 103,
+			"path" : "SceneTakeKeyboard.qml",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 104,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 108,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qrc_appSmartSlate_raw_qml_0.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 104,
+			"backtrace" : 110,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/qmake_SmartSlate.qrc",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 104,
+			"backtrace" : 110,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/SmartSlate/qmldir",
 			"sourceGroupIndex" : 3
 		},
 		{
-			"backtrace" : 104,
+			"backtrace" : 110,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/appSmartSlate_raw_qml_0.qrc",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 106,
+			"backtrace" : 112,
 			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/appSmartSlate.exe.manifest",
 			"sourceGroupIndex" : 4
 		},
@@ -1396,7 +1480,25 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SlateNotesField_qml.cpp.rule",
+			"sourceGroupIndex" : 5
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_VerticalFieldLabel_qml.cpp.rule",
+			"sourceGroupIndex" : 5
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_GearIcon_qml.cpp.rule",
+			"sourceGroupIndex" : 5
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp.rule",
 			"sourceGroupIndex" : 5
 		},
 		{

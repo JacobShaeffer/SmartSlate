@@ -48,6 +48,18 @@ Item {
             return input
         }
 
+        function findDescendant(item, objectName) {
+            for (let i = 0; i < item.children.length; ++i) {
+                const child = item.children[i]
+                if (child.objectName === objectName)
+                    return child
+                const match = findDescendant(child, objectName)
+                if (match)
+                    return match
+            }
+            return null
+        }
+
         function verifyTextFits(input) {
             verify(input.contentWidth <= input.width - input.leftPadding - input.rightPadding,
                    "Text exceeds the input width: " + input.contentWidth + "/" + input.width)
@@ -171,12 +183,55 @@ Item {
             verify(InputContext.inputEngine.inputModes.indexOf(
                        InputEngine.InputMode.Latin) !== -1)
 
-            InputContext.inputEngine.inputMode = InputEngine.InputMode.Latin
+            const customKeyboard = findChild(slateWindow, "sceneTakeKeyboard")
+            const stockKeyboard = findChild(slateWindow, "virtualKeyboard")
+            const modeSwitch = findChild(slateWindow, "sceneTakeModeSwitch")
+            verify(customKeyboard !== null)
+            verify(modeSwitch !== null)
+            tryCompare(customKeyboard, "visible", true)
+            compare(stockKeyboard.visible, false)
+            compare(customKeyboard.numberMode, true)
+            compare(customKeyboard.numberKeys.join(","),
+                    "7,8,9,4,5,6,1,2,3,,0,")
+            compare(modeSwitch.text, "ABC")
+
+            tryVerify(function() {
+                return findDescendant(customKeyboard, "sceneTakeKey7") !== null
+                       && findDescendant(customKeyboard, "sceneTakeKey0") !== null
+            })
+            const sevenKey = findDescendant(customKeyboard, "sceneTakeKey7")
+            const zeroKey = findDescendant(customKeyboard, "sceneTakeKey0")
+            verify(sevenKey !== null)
+            verify(zeroKey !== null)
+            verify(modeSwitch.mapToItem(customKeyboard, 0, 0).x
+                   < sevenKey.mapToItem(customKeyboard, 0, 0).x)
+            sevenKey.click()
+            zeroKey.click()
+            tryCompare(input, "text", "70")
+
+            modeSwitch.click()
+            tryCompare(customKeyboard, "numberMode", false)
             tryCompare(InputContext.inputEngine, "inputMode",
                        InputEngine.InputMode.Latin)
-            verify(InputContext.inputEngine.virtualKeyClick(Qt.Key_A, "a",
-                                                            Qt.NoModifier))
-            tryCompare(input, "text", "A")
+            compare(modeSwitch.text, "123")
+            compare(customKeyboard.letterRows[0].join(""), "QWERTYUIOP")
+            compare(customKeyboard.letterRows[1].join(""), "ASDFGHJKL")
+            compare(customKeyboard.letterRows[2].join(""), "ZXCVBNM")
+
+            tryVerify(function() {
+                return findDescendant(customKeyboard, "sceneTakeKeyA") !== null
+            })
+            const aKey = findDescendant(customKeyboard, "sceneTakeKeyA")
+            verify(aKey !== null)
+            verify(modeSwitch.mapToItem(customKeyboard, 0, 0).x
+                   < aKey.mapToItem(customKeyboard, 0, 0).x)
+            aKey.click()
+            tryCompare(input, "text", "70A")
+
+            modeSwitch.click()
+            tryCompare(customKeyboard, "numberMode", true)
+            tryCompare(InputContext.inputEngine, "inputMode",
+                       InputEngine.InputMode.Numeric)
         }
 
         function test_dateMaskAndNumericOnlyInput() {
@@ -246,6 +301,8 @@ Item {
             compare(field.forceUppercase, false)
             verify((input.inputMethodHints & Qt.ImhPreferNumbers) === 0)
             verify((input.inputMethodHints & Qt.ImhDigitsOnly) === 0)
+            compare(findChild(slateWindow, "sceneTakeKeyboard").visible, false)
+            compare(findChild(slateWindow, "virtualKeyboard").visible, true)
             input.text = "Mixed case"
             compare(input.text, "Mixed case")
         }

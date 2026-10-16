@@ -5,6 +5,7 @@
     <file alias="SlateNotesField.qml">C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/SlateNotesField.qml</file>
     <file alias="VerticalFieldLabel.qml">C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/VerticalFieldLabel.qml</file>
     <file alias="GearIcon.qml">C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/GearIcon.qml</file>
+    <file alias="SceneTakeKeyboard.qml">C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/SceneTakeKeyboard.qml</file>
   </qresource>
 </RCC>
 

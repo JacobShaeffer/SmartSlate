@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   ".rcc/qmlcache/appSmartSlate_GearIcon_qml.cpp.aotstats"
   ".rcc/qmlcache/appSmartSlate_Main_qml.cpp"
   ".rcc/qmlcache/appSmartSlate_Main_qml.cpp.aotstats"
+  ".rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp"
+  ".rcc/qmlcache/appSmartSlate_SceneTakeKeyboard_qml.cpp.aotstats"
   ".rcc/qmlcache/appSmartSlate_SlateField_qml.cpp"
   ".rcc/qmlcache/appSmartSlate_SlateField_qml.cpp.aotstats"
   ".rcc/qmlcache/appSmartSlate_SlateNotesField_qml.cpp"
