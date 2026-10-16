@@ -15,6 +15,7 @@ Rectangle {
     property Item nextInput: null
     property int fitDebounceInterval: 220
     readonly property bool fitPending: fitDebounce.running
+                                       || fitState.validationPending
 
     property int fittedFontSize: Math.max(1, minimumValueFontSize)
     property int fitRevision: 0
@@ -23,6 +24,12 @@ Rectangle {
     property int fitBest: minimumValueFontSize
     property int fitCandidate: valueFontSize
     property bool normalizingText: false
+
+    QtObject {
+        id: fitState
+        readonly property real safetyMargin: 2
+        property bool validationPending: false
+    }
 
     function normalizedText(value) {
         return value.replace(/\r\n|\r|\n|\u2028|\u2029/g, " ")
@@ -40,6 +47,7 @@ Rectangle {
 
     function requestFit() {
         const revision = ++fitRevision
+        fitState.validationPending = false
         const minimumSize = Math.max(1, minimumValueFontSize)
         const maximumSize = Math.max(minimumSize,
                                      Math.floor(Math.min(valueFontSize,
@@ -70,7 +78,11 @@ Rectangle {
 
         if (fitLow > fitHigh) {
             fittedFontSize = fitBest
-            Qt.callLater(editorViewport.revealCursor)
+            fitState.validationPending = true
+            Qt.callLater(function() {
+                if (field)
+                    field.validateFitResult(revision)
+            })
             return
         }
 
@@ -85,7 +97,11 @@ Rectangle {
         if (revision !== fitRevision)
             return
 
-        const fits = fitProbe.contentHeight <= editorViewport.height + 0.5
+        const measuredHeight = fitProbe.contentHeight
+                + fitProbe.topPadding + fitProbe.bottomPadding
+        const availableHeight = Math.max(0, editorViewport.height
+                                            - fitState.safetyMargin)
+        const fits = measuredHeight <= availableHeight
         if (fits) {
             fitBest = fitCandidate
             fitLow = fitCandidate + 1
@@ -93,6 +109,35 @@ Rectangle {
             fitHigh = fitCandidate - 1
         }
         fitNextCandidate(revision)
+    }
+
+    function validateFitResult(revision) {
+        if (revision !== fitRevision)
+            return
+
+        const renderedHeight = editor.contentHeight
+                + editor.topPadding + editor.bottomPadding
+        const availableHeight = Math.max(0, editorViewport.height
+                                            - fitState.safetyMargin)
+        if (renderedHeight <= availableHeight) {
+            fitState.validationPending = false
+            editorViewport.contentY = 0
+            Qt.callLater(editorViewport.revealCursor)
+            return
+        }
+
+        const minimumSize = Math.max(1, minimumValueFontSize)
+        if (fittedFontSize <= minimumSize) {
+            fitState.validationPending = false
+            Qt.callLater(editorViewport.revealCursor)
+            return
+        }
+
+        --fittedFontSize
+        Qt.callLater(function() {
+            if (field)
+                field.validateFitResult(revision)
+        })
     }
 
     function finishEditing() {
@@ -237,12 +282,17 @@ Rectangle {
         }
     }
 
-    Text {
+    TextArea {
         id: fitProbe
         width: editorViewport.width
         text: field.completeText().length > 0 ? field.completeText() : "Mg"
-        textFormat: Text.PlainText
-        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+        leftPadding: editor.leftPadding
+        rightPadding: editor.rightPadding
+        topPadding: editor.topPadding
+        bottomPadding: editor.bottomPadding
+        textFormat: editor.textFormat
+        wrapMode: editor.wrapMode
+        horizontalAlignment: editor.horizontalAlignment
         font.family: editor.font.family
         font.pixelSize: field.fitCandidate
         font.weight: editor.font.weight
@@ -253,6 +303,7 @@ Rectangle {
         font.kerning: editor.font.kerning
         font.hintingPreference: editor.font.hintingPreference
         renderType: editor.renderType
+        background: null
         visible: false
     }
 

@@ -82,6 +82,33 @@ Item {
             wait(20)
         }
 
+        function verifyNotesFullyVisible(notes) {
+            const input = notes.input
+            const viewport = notes.viewport
+            const renderedHeight = input.contentHeight
+                    + input.topPadding + input.bottomPadding
+            const availableHeight = viewport.height - 2
+
+            verify(renderedHeight <= availableHeight + 0.01,
+                   "Notes text is clipped: rendered height " + renderedHeight
+                   + ", available height " + availableHeight
+                   + ", font size " + input.font.pixelSize
+                   + ", lines " + input.lineCount)
+            verify(viewport.contentHeight <= viewport.height + 0.01,
+                   "A fully fitted note unexpectedly scrolls")
+            compare(viewport.interactive, false)
+            compare(viewport.contentY, 0)
+
+            input.cursorPosition = input.length
+            wait(20)
+            const cursor = input.mapToItem(viewport, 0,
+                                           input.cursorRectangle.y)
+            verify(cursor.y >= -1)
+            verify(cursor.y + input.cursorRectangle.height
+                   <= viewport.height + 1,
+                   "The end of the note is outside the viewport")
+        }
+
         function test_shrinkAndRestore_data() {
             return [
                 { tag: "production", name: "production", text: "PRODUCTION WITH AN EXTENDED SUBTITLE AND COMPANY NAME" },
@@ -672,6 +699,26 @@ Item {
             verify(input.font.pixelSize < multiLineSize)
             verify(input.font.pixelSize >= 14)
             verify(input.lineCount >= 3)
+        }
+
+        function test_notesWordBoundaryRemainsFullyVisible() {
+            const notes = slateField("notes")
+            const input = notes.input
+            const widths = [1280, 1248, 1216, 1184]
+
+            slateWindow.height = 800
+            input.text = "THIS IS AWESOME"
+            for (let i = 0; i < widths.length; ++i) {
+                slateWindow.width = widths[i]
+                waitForNotesFit(notes)
+                compare(input.text, "THIS IS AWESOME")
+                verify(input.font.pixelSize > notes.minimumValueFontSize)
+                verify(input.lineCount >= 1)
+                verifyNotesFullyVisible(notes)
+            }
+
+            slateWindow.width = 1280
+            waitForNotesFit(notes)
         }
 
         function test_notesWaitsForTypingToFinish() {
