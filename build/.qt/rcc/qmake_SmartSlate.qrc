@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="/qt/qml/SmartSlate">
-    <file alias="qmldir">C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/SmartSlate/qmldir</file>
-  </qresource>
-</RCC>
-
