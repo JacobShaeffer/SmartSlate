@@ -4,3 +4,6 @@ C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt
 C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qt/rcc/appSmartSlate_raw_qml_0.qrc
 /qt/qml/SmartSlate/Main.qml
 /qt/qml/SmartSlate/SlateField.qml
+/qt/qml/SmartSlate/SlateNotesField.qml
+/qt/qml/SmartSlate/VerticalFieldLabel.qml
+/qt/qml/SmartSlate/GearIcon.qml

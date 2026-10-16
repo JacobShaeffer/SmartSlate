@@ -400,4 +400,9 @@ CMakeFiles/appSmartSlate.dir/main.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtQml/qqmlregistration.h \
  C:/Qt/6.12.0/mingw_64/include/QtQmlIntegration/qqmlintegration.h \
  C:/Qt/6.12.0/mingw_64/include/QtQml/qqmlerror.h \
- C:/Qt/6.12.0/mingw_64/include/QtQml/qqmlabstracturlinterceptor.h
+ C:/Qt/6.12.0/mingw_64/include/QtQml/qqmlabstracturlinterceptor.h \
+ C:\Users\Jacob\Projects\SmartSlate\Qt\ user\ interface\SmartSlate\brightnesscontroller.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QObject \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QProcess \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qprocess.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qiodevice.h

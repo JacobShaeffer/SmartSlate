@@ -1,6 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
+#include "brightnesscontroller.h"
+
 int main(int argc, char *argv[])
 {
     qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
@@ -8,6 +10,7 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
+    BrightnessController brightnessController;
     QQmlApplicationEngine engine;
     QObject::connect(
         &engine,
@@ -16,6 +19,11 @@ int main(int argc, char *argv[])
         []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
     engine.loadFromModule("SmartSlate", "Main");
+    if (!engine.rootObjects().isEmpty()) {
+        engine.rootObjects().constFirst()->setProperty(
+            "brightnessController",
+            QVariant::fromValue(static_cast<QObject *>(&brightnessController)));
+    }
 
     return QGuiApplication::exec();
 }

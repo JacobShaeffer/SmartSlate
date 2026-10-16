@@ -1,0 +1,14 @@
+-I
+C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build
+-I
+C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/SmartSlate
+-I
+C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build
+-I
+C:/Qt/6.12.0/mingw_64/qml
+--resource
+C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/.qt/rcc/qmake_SmartSlate.qrc
+--resource
+C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/build/.qt/rcc/appSmartSlate_raw_qml_0.qrc
+--module
+SmartSlate

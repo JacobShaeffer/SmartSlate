@@ -7,10 +7,58 @@
                     "entries": [
                         {
                             "codegenResult": 0,
+                            "column": 36,
+                            "durationMicroseconds": 1000,
+                            "functionName": "inputMethodHints",
+                            "line": 14,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 5,
+                            "durationMicroseconds": 0,
+                            "functionName": "uppercaseIndex",
+                            "line": 22,
+                            "message": "Functions without type annotations won't be compiled"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 5,
+                            "durationMicroseconds": 2000,
+                            "functionName": "normalizeTextCase",
+                            "line": 27,
+                            "message": "Cannot generate efficient code for call to untyped JavaScript function"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 5,
+                            "durationMicroseconds": 0,
+                            "functionName": "scheduleTextNormalization",
+                            "line": 57,
+                            "message": "Instruction \"generate_StoreLocal\" not implemented"
+                        },
+                        {
+                            "codegenResult": 0,
                             "column": 12,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 17,
+                            "line": 68,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 19,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 72,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 21,
+                            "durationMicroseconds": 0,
+                            "functionName": "objectName",
+                            "line": 79,
                             "message": ""
                         },
                         {
@@ -18,23 +66,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 22,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 19,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 27,
-                            "message": "Cannot generate efficient code for call to untyped JavaScript function"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 26,
-                            "durationMicroseconds": 0,
-                            "functionName": "weight",
-                            "line": 30,
+                            "line": 80,
                             "message": ""
                         },
                         {
@@ -42,7 +74,55 @@
                             "column": 25,
                             "durationMicroseconds": 0,
                             "functionName": "objectName",
-                            "line": 37,
+                            "line": 85,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 20,
+                            "durationMicroseconds": 0,
+                            "functionName": "label",
+                            "line": 86,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 23,
+                            "durationMicroseconds": 0,
+                            "functionName": "darkMode",
+                            "line": 87,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 27,
+                            "durationMicroseconds": 0,
+                            "functionName": "left",
+                            "line": 88,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 26,
+                            "durationMicroseconds": 0,
+                            "functionName": "top",
+                            "line": 89,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 29,
+                            "durationMicroseconds": 0,
+                            "functionName": "bottom",
+                            "line": 90,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 25,
+                            "durationMicroseconds": 0,
+                            "functionName": "objectName",
+                            "line": 95,
                             "message": ""
                         },
                         {
@@ -50,7 +130,7 @@
                             "column": 52,
                             "durationMicroseconds": 0,
                             "functionName": "minimumFontSize",
-                            "line": 39,
+                            "line": 105,
                             "message": ""
                         },
                         {
@@ -58,7 +138,7 @@
                             "column": 52,
                             "durationMicroseconds": 0,
                             "functionName": "maximumFontSize",
-                            "line": 40,
+                            "line": 106,
                             "message": ""
                         },
                         {
@@ -66,7 +146,15 @@
                             "column": 56,
                             "durationMicroseconds": 0,
                             "functionName": "availableTextWidth",
-                            "line": 42,
+                            "line": 109,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 57,
+                            "durationMicroseconds": 0,
+                            "functionName": "availableTextHeight",
+                            "line": 110,
                             "message": ""
                         },
                         {
@@ -74,31 +162,95 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "fittedFontSize",
-                            "line": 43,
+                            "line": 111,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 13,
-                            "durationMicroseconds": 3000,
-                            "functionName": "fitText",
-                            "line": 45,
+                            "column": 34,
+                            "durationMicroseconds": 0,
+                            "functionName": "fitLow",
+                            "line": 113,
                             "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 35,
+                            "durationMicroseconds": 0,
+                            "functionName": "fitHigh",
+                            "line": 114,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 35,
+                            "durationMicroseconds": 0,
+                            "functionName": "fitBest",
+                            "line": 115,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "fitCandidate",
+                            "line": 116,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 13,
+                            "durationMicroseconds": 0,
+                            "functionName": "fitText",
+                            "line": 119,
+                            "message": "Cannot generate efficient code for call to untyped JavaScript function"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 13,
+                            "durationMicroseconds": 0,
+                            "functionName": "fitNextCandidate",
+                            "line": 132,
+                            "message": "Functions without type annotations won't be compiled"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 13,
+                            "durationMicroseconds": 0,
+                            "functionName": "evaluateCandidate",
+                            "line": 152,
+                            "message": "Functions without type annotations won't be compiled"
                         },
                         {
                             "codegenResult": 2,
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "onDisplayTextChanged",
-                            "line": 84,
+                            "line": 169,
                             "message": "Cannot generate efficient code for lookup of (component in C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/SlateField.qml)::fitText(...) (stored as QJSValue)"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "onTextChanged",
+                            "line": 170,
+                            "message": ""
                         },
                         {
                             "codegenResult": 2,
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "onAvailableTextWidthChanged",
-                            "line": 85,
+                            "line": 171,
+                            "message": "Cannot generate efficient code for lookup of (component in C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/SlateField.qml)::fitText(...) (stored as QJSValue)"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 43,
+                            "durationMicroseconds": 0,
+                            "functionName": "onAvailableTextHeightChanged",
+                            "line": 172,
                             "message": "Cannot generate efficient code for lookup of (component in C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/SlateField.qml)::fitText(...) (stored as QJSValue)"
                         },
                         {
@@ -106,7 +258,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "onMinimumFontSizeChanged",
-                            "line": 86,
+                            "line": 173,
                             "message": "Cannot generate efficient code for lookup of (component in C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/SlateField.qml)::fitText(...) (stored as QJSValue)"
                         },
                         {
@@ -114,7 +266,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "onMaximumFontSizeChanged",
-                            "line": 87,
+                            "line": 174,
                             "message": "Cannot generate efficient code for lookup of (component in C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/SlateField.qml)::fitText(...) (stored as QJSValue)"
                         },
                         {
@@ -122,7 +274,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "onFontChanged",
-                            "line": 88,
+                            "line": 175,
                             "message": "Cannot generate efficient code for lookup of (component in C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/SlateField.qml)::fitText(...) (stored as QJSValue)"
                         },
                         {
@@ -130,15 +282,23 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "onRenderTypeChanged",
-                            "line": 89,
+                            "line": 179,
                             "message": "Cannot generate efficient code for lookup of (component in C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/SlateField.qml)::fitText(...) (stored as QJSValue)"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 20,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 182,
+                            "message": ""
                         },
                         {
                             "codegenResult": 0,
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "horizontalAlignment",
-                            "line": 100,
+                            "line": 187,
                             "message": ""
                         },
                         {
@@ -146,7 +306,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "verticalAlignment",
-                            "line": 101,
+                            "line": 188,
                             "message": ""
                         },
                         {
@@ -154,7 +314,15 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "inputMethodHints",
-                            "line": 104,
+                            "line": 191,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 24,
+                            "durationMicroseconds": 0,
+                            "functionName": "inputMask",
+                            "line": 192,
                             "message": ""
                         },
                         {
@@ -162,7 +330,39 @@
                             "column": 25,
                             "durationMicroseconds": 0,
                             "functionName": "onAccepted",
-                            "line": 110,
+                            "line": 198,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 27,
+                            "durationMicroseconds": 0,
+                            "functionName": "left",
+                            "line": 97,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "right",
+                            "line": 99,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 26,
+                            "durationMicroseconds": 0,
+                            "functionName": "top",
+                            "line": 100,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 29,
+                            "durationMicroseconds": 0,
+                            "functionName": "bottom",
+                            "line": 101,
                             "message": ""
                         },
                         {
@@ -170,7 +370,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "onCompleted",
-                            "line": 83,
+                            "line": 168,
                             "message": "Cannot generate efficient code for lookup of (component in C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate/SlateField.qml)::fitText(...) (stored as QJSValue)"
                         },
                         {
@@ -178,7 +378,7 @@
                             "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 98,
+                            "line": 185,
                             "message": ""
                         },
                         {
@@ -186,7 +386,7 @@
                             "column": 26,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 99,
+                            "line": 186,
                             "message": ""
                         },
                         {
@@ -194,7 +394,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "name",
-                            "line": 106,
+                            "line": 194,
                             "message": ""
                         },
                         {
@@ -202,7 +402,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "actionId",
-                            "line": 107,
+                            "line": 195,
                             "message": ""
                         },
                         {
@@ -210,7 +410,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "onEscapePressed",
-                            "line": 120,
+                            "line": 208,
                             "message": ""
                         },
                         {
@@ -218,7 +418,111 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "onEscapePressed",
-                            "line": 120,
+                            "line": 208,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 15,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 218,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 21,
+                            "durationMicroseconds": 0,
+                            "functionName": "textFormat",
+                            "line": 219,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 19,
+                            "durationMicroseconds": 0,
+                            "functionName": "wrapMode",
+                            "line": 220,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 21,
+                            "durationMicroseconds": 0,
+                            "functionName": "renderType",
+                            "line": 230,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 22,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 221,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 25,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 222,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 22,
+                            "durationMicroseconds": 0,
+                            "functionName": "weight",
+                            "line": 223,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 22,
+                            "durationMicroseconds": 0,
+                            "functionName": "italic",
+                            "line": 224,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 29,
+                            "durationMicroseconds": 0,
+                            "functionName": "letterSpacing",
+                            "line": 225,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 27,
+                            "durationMicroseconds": 0,
+                            "functionName": "wordSpacing",
+                            "line": 226,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 30,
+                            "durationMicroseconds": 0,
+                            "functionName": "capitalization",
+                            "line": 227,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 23,
+                            "durationMicroseconds": 0,
+                            "functionName": "kerning",
+                            "line": 228,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 33,
+                            "durationMicroseconds": 0,
+                            "functionName": "hintingPreference",
+                            "line": 229,
                             "message": ""
                         },
                         {
@@ -226,7 +530,7 @@
                             "column": 19,
                             "durationMicroseconds": 0,
                             "functionName": "onTapped",
-                            "line": 135,
+                            "line": 237,
                             "message": ""
                         }
                     ],

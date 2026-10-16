@@ -1,5 +1,4 @@
 import QtQuick
-import QtQuick.Layouts
 import QtQuick.Controls.Basic
 import QtQuick.VirtualKeyboard
 
@@ -9,99 +8,188 @@ Rectangle {
     required property string label
     property alias text: editor.text
     property alias input: editor
+    property bool darkMode: true
     property bool centeredValue: false
-    property int valueFontSize: 36
-    property int minimumValueFontSize: 12
+    property bool forceUppercase: false
+    property int inputMethodHints: Qt.ImhNoPredictiveText
+    property string inputMask: ""
+    property int valueFontSize: 4096
+    property int minimumValueFontSize: 14
     property Item nextInput: null
+    property bool normalizingText: false
+    property int normalizationRevision: 0
 
-    color: editor.activeFocus ? "#eef1f4" : "#faf9f6"
+    function uppercaseIndex(value, index) {
+        const boundedIndex = Math.max(0, Math.min(index, value.length))
+        return value.slice(0, boundedIndex).toUpperCase().length
+    }
+
+    function normalizeTextCase() {
+        if (!forceUppercase || normalizingText)
+            return
+
+        const source = editor.text
+        const normalized = source.toUpperCase()
+        if (normalized === source)
+            return
+
+        const oldCursor = editor.cursorPosition
+        const oldSelectionStart = editor.selectionStart
+        const oldSelectionEnd = editor.selectionEnd
+        const cursorWasAtSelectionStart = oldCursor === oldSelectionStart
+        const mappedCursor = uppercaseIndex(source, oldCursor)
+        const mappedSelectionStart = uppercaseIndex(source, oldSelectionStart)
+        const mappedSelectionEnd = uppercaseIndex(source, oldSelectionEnd)
+
+        normalizingText = true
+        editor.text = normalized
+        if (oldSelectionStart !== oldSelectionEnd) {
+            if (cursorWasAtSelectionStart)
+                editor.select(mappedSelectionEnd, mappedSelectionStart)
+            else
+                editor.select(mappedSelectionStart, mappedSelectionEnd)
+        } else {
+            editor.cursorPosition = Math.min(mappedCursor, normalized.length)
+        }
+        normalizingText = false
+    }
+
+    function scheduleTextNormalization() {
+        if (!forceUppercase || normalizingText)
+            return
+
+        const revision = ++normalizationRevision
+        Qt.callLater(function() {
+            if (field && revision === field.normalizationRevision)
+                field.normalizeTextCase()
+        })
+    }
+
+    color: editor.activeFocus
+           ? (darkMode ? "#24292d" : "#ffffff")
+           : (darkMode ? "#191c1f" : "#f8f7f2")
+    border.width: 1
+    border.color: editor.activeFocus ? "#e8b44d"
+                                      : (darkMode ? "#343a3f" : "#c9c8c2")
+    radius: 3
     implicitHeight: 88
     implicitWidth: 0
 
-    ColumnLayout {
+    Item {
+        objectName: field.objectName + "Content"
         anchors.fill: parent
-        anchors.margins: 12
-        spacing: 2
+        anchors.margins: 8
 
-        Label {
-            text: field.label.toUpperCase()
-            color: "#111111"
-            font.pixelSize: 16
-            font.weight: Font.Bold
-            font.letterSpacing: 2
-            Layout.fillWidth: true
+        VerticalFieldLabel {
+            id: titleRail
+            objectName: field.objectName + "Title"
+            label: field.label
+            darkMode: field.darkMode
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
         }
 
         TextField {
             id: editor
             objectName: field.objectName + "Input"
 
+            anchors.left: titleRail.right
+            anchors.leftMargin: 8
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            implicitWidth: 0
+            implicitHeight: 0
+
             readonly property int minimumFontSize: Math.max(1, field.minimumValueFontSize)
             readonly property int maximumFontSize: Math.max(minimumFontSize,
-                Math.round(Math.min(field.valueFontSize, Math.max(24, height * 0.8))))
+                Math.floor(Math.min(field.valueFontSize,
+                                    Math.max(minimumFontSize, height * 2))))
             readonly property real availableTextWidth: Math.max(0, width - leftPadding - rightPadding - 2)
-            property int fittedFontSize: maximumFontSize
+            readonly property real availableTextHeight: Math.max(0, height - topPadding - bottomPadding)
+            property int fittedFontSize: minimumFontSize
+            property int fitRevision: 0
+            property int fitLow: minimumFontSize
+            property int fitHigh: maximumFontSize
+            property int fitBest: minimumFontSize
+            property int fitCandidate: maximumFontSize
+            property bool applyingFitResult: false
 
             function fitText() {
-                if (displayText.length === 0 || availableTextWidth <= 0) {
-                    fittedFontSize = maximumFontSize
+                const revision = ++fitRevision
+                if (availableTextWidth <= 0 || availableTextHeight <= 0) {
+                    fittedFontSize = minimumFontSize
                     return
                 }
 
-                // Copy the input's font before measuring; trial sizes must not
-                // change the input or feed back into the search bounds.
-                textMetrics.font = font
-                textMetrics.renderType = renderType
-                textMetrics.text = displayText
+                fitLow = minimumFontSize
+                fitHigh = maximumFontSize
+                fitBest = minimumFontSize
+                fitNextCandidate(revision)
+            }
 
-                let lower = minimumFontSize
-                let upper = maximumFontSize
-                let best = minimumFontSize
+            function fitNextCandidate(revision) {
+                if (revision !== fitRevision)
+                    return
 
-                while (lower <= upper) {
-                    const candidate = Math.floor((lower + upper) / 2)
-                    textMetrics.font.pixelSize = candidate
-                    const bounds = textMetrics.boundingRect
-                    const measuredWidth = Math.max(textMetrics.advanceWidth, bounds.x + bounds.width)
-                        - Math.min(0, bounds.x)
-
-                    if (measuredWidth <= availableTextWidth) {
-                        best = candidate
-                        lower = candidate + 1
-                    } else {
-                        upper = candidate - 1
-                    }
+                if (fitLow > fitHigh) {
+                    applyingFitResult = true
+                    fittedFontSize = fitBest
+                    applyingFitResult = false
+                    autoScroll = false
+                    autoScroll = true
+                    return
                 }
 
-                fittedFontSize = best
-                // Refresh Qt's scroll offset for the resized font and the
-                // actual cursor, including a cursor inside IME composition.
-                autoScroll = false
-                autoScroll = true
+                fitCandidate = Math.floor((fitLow + fitHigh) / 2)
+                Qt.callLater(function() {
+                    if (editor)
+                        editor.evaluateCandidate(revision)
+                })
+            }
+
+            function evaluateCandidate(revision) {
+                if (revision !== fitRevision)
+                    return
+
+                const measuredWidth = fitProbe.contentWidth
+                const measuredHeight = fitProbe.contentHeight
+                if (measuredWidth <= availableTextWidth
+                        && measuredHeight <= availableTextHeight) {
+                    fitBest = fitCandidate
+                    fitLow = fitCandidate + 1
+                } else {
+                    fitHigh = fitCandidate - 1
+                }
+                fitNextCandidate(revision)
             }
 
             Component.onCompleted: Qt.callLater(fitText)
             onDisplayTextChanged: Qt.callLater(fitText)
+            onTextChanged: field.scheduleTextNormalization()
             onAvailableTextWidthChanged: Qt.callLater(fitText)
+            onAvailableTextHeightChanged: Qt.callLater(fitText)
             onMinimumFontSizeChanged: Qt.callLater(fitText)
             onMaximumFontSizeChanged: Qt.callLater(fitText)
-            onFontChanged: Qt.callLater(fitText)
+            onFontChanged: {
+                if (!applyingFitResult)
+                    Qt.callLater(fitText)
+            }
             onRenderTypeChanged: Qt.callLater(fitText)
 
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.minimumWidth: 0
             padding: 0
-            color: "#111111"
-            selectionColor: "#111111"
-            selectedTextColor: "#faf9f6"
+            color: field.darkMode ? "#f5f4ef" : "#161819"
+            selectionColor: "#e8b44d"
+            selectedTextColor: "#171819"
             font.pixelSize: fittedFontSize
             font.weight: field.centeredValue ? Font.DemiBold : Font.Medium
             horizontalAlignment: field.centeredValue ? TextInput.AlignHCenter : TextInput.AlignLeft
             verticalAlignment: TextInput.AlignVCenter
             selectByMouse: true
             autoScroll: true
-            inputMethodHints: Qt.ImhNoPredictiveText
+            inputMethodHints: field.inputMethodHints
+            inputMask: field.inputMask
             background: null
             Accessible.name: field.label
             EnterKeyAction.actionId: field.nextInput ? EnterKeyAction.Next : EnterKeyAction.Done
@@ -125,8 +213,22 @@ Rectangle {
         }
     }
 
-    TextMetrics {
-        id: textMetrics
+    Text {
+        id: fitProbe
+        text: editor.displayText.length > 0 ? editor.displayText : "Mg"
+        textFormat: Text.PlainText
+        wrapMode: Text.NoWrap
+        font.family: editor.font.family
+        font.pixelSize: editor.fitCandidate
+        font.weight: editor.font.weight
+        font.italic: editor.font.italic
+        font.letterSpacing: editor.font.letterSpacing
+        font.wordSpacing: editor.font.wordSpacing
+        font.capitalization: editor.font.capitalization
+        font.kerning: editor.font.kerning
+        font.hintingPreference: editor.font.hintingPreference
+        renderType: editor.renderType
+        visible: false
     }
 
     // The label and empty cell area are touch targets too. Tapping a focused

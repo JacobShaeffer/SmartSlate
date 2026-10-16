@@ -15,6 +15,8 @@ endif()
 
 qt_add_executable(appSmartSlate
     main.cpp
+    brightnesscontroller.cpp
+    brightnesscontroller.h
 )
 
 qt_add_qml_module(appSmartSlate
@@ -22,6 +24,9 @@ qt_add_qml_module(appSmartSlate
     QML_FILES
         Main.qml
         SlateField.qml
+        SlateNotesField.qml
+        VerticalFieldLabel.qml
+        GearIcon.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

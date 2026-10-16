@@ -368,6 +368,14 @@ CMakeFiles/appSmartSlate.dir/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.rcc/qml
  C:/Qt/6.12.0/mingw_64/include/QtCore/qspan.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cassert \
  C:/Qt/6.12.0/mingw_64/include/QtCore/q20iterator.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcoreapplication.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcoreevent.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qbasictimer.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qeventloop.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qdeadlinetimer.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qnativeinterface.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcoreapplication_platform.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qrandom.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/random \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/random.h \

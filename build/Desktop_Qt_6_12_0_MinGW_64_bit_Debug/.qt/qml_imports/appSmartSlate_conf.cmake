@@ -1,4 +1,4 @@
-set(qml_import_scanner_imports_count 27)
+set(qml_import_scanner_imports_count 29)
 set(qml_import_scanner_import_0 "CLASSNAME;QtQuick2Plugin;LINKTARGET;Qt6::qtquick2plugin;NAME;QtQuick;PATH;C:/Qt/6.12.0/mingw_64/qml/QtQuick;PLUGIN;qtquick2plugin;PLUGINISOPTIONAL;;PREFER;:/qt-project.org/imports/QtQuick/;RELATIVEPATH;QtQuick;TYPE;module;")
 set(qml_import_scanner_import_1 "CLASSNAME;QtQmlPlugin;LINKTARGET;Qt6::qmlplugin;NAME;QtQml;PATH;C:/Qt/6.12.0/mingw_64/qml/QtQml;PLUGIN;qmlplugin;PLUGINISOPTIONAL;;PREFER;:/qt-project.org/imports/QtQml/;RELATIVEPATH;QtQml;TYPE;module;")
 set(qml_import_scanner_import_2 "NAME;QML;PATH;C:/Qt/6.12.0/mingw_64/qml/QML;PREFER;:/qt-project.org/imports/QML/;RELATIVEPATH;QML;TYPE;module;")
@@ -26,4 +26,6 @@ set(qml_import_scanner_import_23 "CLASSNAME;QtQuick_VirtualKeyboard_Plugins_TCIm
 set(qml_import_scanner_import_24 "CLASSNAME;QtQuick_VirtualKeyboard_Plugins_ThaiPlugin;LINKTARGET;Qt6::qtvkbthaiplugin;NAME;QtQuick.VirtualKeyboard.Plugins.Thai;PATH;C:/Qt/6.12.0/mingw_64/qml/QtQuick/VirtualKeyboard/Plugins/Thai;PLUGIN;qtvkbthaiplugin;PREFER;:/qt-project.org/imports/QtQuick/VirtualKeyboard/Plugins/Thai/;RELATIVEPATH;QtQuick/VirtualKeyboard/Plugins/Thai;TYPE;module;")
 set(qml_import_scanner_import_25 "CLASSNAME;QtQuick_VirtualKeyboard_SettingsPlugin;LINKTARGET;Qt6::qtvkbsettingsplugin;NAME;QtQuick.VirtualKeyboard.Settings;PATH;C:/Qt/6.12.0/mingw_64/qml/QtQuick/VirtualKeyboard/Settings;PLUGIN;qtvkbsettingsplugin;PREFER;:/qt-project.org/imports/QtQuick/VirtualKeyboard/Settings/;RELATIVEPATH;QtQuick/VirtualKeyboard/Settings;TYPE;module;")
 set(qml_import_scanner_import_26 "CLASSNAME;QMultimediaQuickModule;COMPONENTS;C:/Qt/6.12.0/mingw_64/qml/QtMultimedia/Video.qml;LINKTARGET;Qt6::quickmultimediaplugin;NAME;QtMultimedia;PATH;C:/Qt/6.12.0/mingw_64/qml/QtMultimedia;PLUGIN;quickmultimediaplugin;PREFER;:/qt-project.org/imports/QtMultimedia/;RELATIVEPATH;QtMultimedia;TYPE;module;")
+set(qml_import_scanner_import_27 "CLASSNAME;QtTestPlugin;COMPONENTS;C:/Qt/6.12.0/mingw_64/qml/QtTest/SignalSpy.qml;C:/Qt/6.12.0/mingw_64/qml/QtTest/TestCase.qml;C:/Qt/6.12.0/mingw_64/qml/QtTest/TestSchedule.qml;LINKTARGET;Qt6::QuickTestplugin;NAME;QtTest;PATH;C:/Qt/6.12.0/mingw_64/qml/QtTest;PLUGIN;quicktestplugin;PLUGINISOPTIONAL;;PREFER;:/qt-project.org/imports/QtTest/;RELATIVEPATH;QtTest;TYPE;module;")
+set(qml_import_scanner_import_28 "NAME;..;PATH;C:/Users/Jacob/Projects/SmartSlate/Qt user interface/SmartSlate;TYPE;directory;")
 
