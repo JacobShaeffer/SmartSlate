@@ -13,8 +13,8 @@ Rectangle {
     property int valueFontSize: 4096
     property int minimumValueFontSize: 14
     property Item nextInput: null
-    property int fitDebounceInterval: 220
-    readonly property bool fitPending: fitDebounce.running
+    readonly property bool fitPending: fitTimer.running
+                                       || fitState.searchPending
                                        || fitState.validationPending
 
     property int fittedFontSize: Math.max(1, minimumValueFontSize)
@@ -28,6 +28,7 @@ Rectangle {
     QtObject {
         id: fitState
         readonly property real safetyMargin: 2
+        property bool searchPending: false
         property bool validationPending: false
     }
 
@@ -46,8 +47,10 @@ Rectangle {
     }
 
     function requestFit() {
-        const revision = ++fitRevision
+        fitState.searchPending = true
         fitState.validationPending = false
+        fitTimer.stop()
+        const revision = ++fitRevision
         const minimumSize = Math.max(1, minimumValueFontSize)
         const maximumSize = Math.max(minimumSize,
                                      Math.floor(Math.min(valueFontSize,
@@ -58,6 +61,7 @@ Rectangle {
 
         if (editorViewport.width <= 0 || editorViewport.height <= 0) {
             fittedFontSize = minimumSize
+            fitState.searchPending = false
             Qt.callLater(editorViewport.revealCursor)
             return
         }
@@ -65,11 +69,13 @@ Rectangle {
         fitNextCandidate(revision)
     }
 
-    function queueFitAfterTyping() {
-        // Invalidate any in-flight binary search immediately, but defer the
-        // replacement search until input has been quiet for a moment.
+    function scheduleFit() {
+        // Coalesce duplicate text/preedit notifications in this event cycle,
+        // but refit before another keystroke can expose the stale font size.
         ++fitRevision
-        fitDebounce.restart()
+        fitState.searchPending = true
+        fitState.validationPending = false
+        fitTimer.restart()
     }
 
     function fitNextCandidate(revision) {
@@ -78,6 +84,7 @@ Rectangle {
 
         if (fitLow > fitHigh) {
             fittedFontSize = fitBest
+            fitState.searchPending = false
             fitState.validationPending = true
             Qt.callLater(function() {
                 if (field)
@@ -141,7 +148,7 @@ Rectangle {
     }
 
     function finishEditing() {
-        fitDebounce.stop()
+        fitTimer.stop()
         requestFit()
         if (nextInput) {
             nextInput.forceActiveFocus(Qt.TabFocusReason)
@@ -255,9 +262,9 @@ Rectangle {
                             field.normalizingText = false
                         }
                     }
-                    field.queueFitAfterTyping()
+                    field.scheduleFit()
                 }
-                onPreeditTextChanged: field.queueFitAfterTyping()
+                onPreeditTextChanged: field.scheduleFit()
                 onCursorRectangleChanged: Qt.callLater(editorViewport.revealCursor)
 
                 Keys.onReturnPressed: event => {
@@ -308,8 +315,8 @@ Rectangle {
     }
 
     Timer {
-        id: fitDebounce
-        interval: field.fitDebounceInterval
+        id: fitTimer
+        interval: 0
         repeat: false
         onTriggered: field.requestFit()
     }

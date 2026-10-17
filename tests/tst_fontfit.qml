@@ -721,7 +721,7 @@ Item {
             waitForNotesFit(notes)
         }
 
-        function test_notesWaitsForTypingToFinish() {
+        function test_notesRefitsWhileTyping() {
             const notes = slateField("notes")
             const input = notes.input
 
@@ -730,10 +730,11 @@ Item {
             const startingSize = input.font.pixelSize
             input.text = "M".repeat(110)
             compare(notes.fitPending, true)
-            wait(Math.floor(notes.fitDebounceInterval / 2))
-            compare(input.font.pixelSize, startingSize)
-            waitForNotesFit(notes)
+            tryCompare(notes, "fitPending", false, 150)
             verify(input.font.pixelSize < startingSize)
+            verify(input.contentHeight + input.topPadding + input.bottomPadding
+                   <= notes.viewport.height + 0.01
+                   || input.font.pixelSize === notes.minimumValueFontSize)
         }
 
         function test_notesMinimumSizeAndInternalScrolling() {
