@@ -1,3 +1,4 @@
+#include <QCursor>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
@@ -9,6 +10,7 @@ int main(int argc, char *argv[])
     qputenv("QT_VIRTUALKEYBOARD_DESKTOP_DISABLE", QByteArray("1"));
 
     QGuiApplication app(argc, argv);
+    QGuiApplication::setOverrideCursor(QCursor(Qt::BlankCursor));
 
     BrightnessController brightnessController;
     QQmlApplicationEngine engine;
