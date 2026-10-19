@@ -28,8 +28,20 @@ Rectangle {
     QtObject {
         id: fitState
         readonly property real safetyMargin: 2
+        readonly property int anchorPhase: 0
+        readonly property int scanPhase: 1
+        readonly property int binaryPhase: 2
+        readonly property int linearProbeLimit: 4
         property bool searchPending: false
         property bool validationPending: false
+        property int phase: anchorPhase
+        property int minimumSize: 1
+        property int maximumSize: 1
+        property int origin: 1
+        property int direction: 0
+        property int offset: 0
+        property int lastFit: 1
+        property int lastFailure: 1
     }
 
     function normalizedText(value) {
@@ -58,6 +70,15 @@ Rectangle {
         fitLow = minimumSize
         fitHigh = maximumSize
         fitBest = minimumSize
+        fitState.minimumSize = minimumSize
+        fitState.maximumSize = maximumSize
+        fitState.origin = Math.max(minimumSize,
+                                   Math.min(maximumSize, fittedFontSize))
+        fitState.direction = 0
+        fitState.offset = 0
+        fitState.lastFit = minimumSize
+        fitState.lastFailure = maximumSize
+        fitState.phase = fitState.anchorPhase
 
         if (editorViewport.width <= 0 || editorViewport.height <= 0) {
             fittedFontSize = minimumSize
@@ -66,7 +87,7 @@ Rectangle {
             return
         }
 
-        fitNextCandidate(revision)
+        queueFitCandidate(revision, fitState.origin)
     }
 
     function scheduleFit() {
@@ -78,26 +99,136 @@ Rectangle {
         fitTimer.restart()
     }
 
-    function fitNextCandidate(revision) {
+    function queueFitCandidate(revision, candidate) {
         if (revision !== fitRevision)
             return
 
-        if (fitLow > fitHigh) {
-            fittedFontSize = fitBest
-            fitState.searchPending = false
-            fitState.validationPending = true
-            Qt.callLater(function() {
-                if (field)
-                    field.validateFitResult(revision)
-            })
-            return
-        }
-
-        fitCandidate = Math.floor((fitLow + fitHigh) / 2)
+        fitCandidate = Math.max(fitState.minimumSize,
+                                Math.min(fitState.maximumSize, candidate))
         Qt.callLater(function() {
             if (field)
                 field.evaluateCandidate(revision)
         })
+    }
+
+    function finishFitSearch(revision) {
+        if (revision !== fitRevision)
+            return
+
+        // Preserve the completed-range invariant used by diagnostics and tests.
+        fitLow = fitState.minimumSize
+        fitHigh = fitState.minimumSize - 1
+        fittedFontSize = Math.max(fitState.minimumSize,
+                                  Math.min(fitState.maximumSize, fitBest))
+        fitState.searchPending = false
+        fitState.validationPending = true
+        Qt.callLater(function() {
+            if (field)
+                field.validateFitResult(revision)
+        })
+    }
+
+    function fitNextBinaryCandidate(revision) {
+        if (revision !== fitRevision)
+            return
+
+        if (fitLow > fitHigh) {
+            finishFitSearch(revision)
+            return
+        }
+
+        queueFitCandidate(revision, Math.floor((fitLow + fitHigh) / 2))
+    }
+
+    function nextScanOffset(offset) {
+        // Nearby results are most likely, so inspect the first four pixels in
+        // order. Beyond that, gallop outward to bracket distant results fast.
+        if (offset < fitState.linearProbeLimit)
+            return offset + 1
+        return offset * 2
+    }
+
+    function queueNextScanCandidate(revision) {
+        const candidate = fitState.origin
+                + fitState.direction * fitState.offset
+        queueFitCandidate(revision, candidate)
+    }
+
+    function beginBinarySearch(revision, low, high) {
+        fitState.phase = fitState.binaryPhase
+        fitLow = low
+        fitHigh = high
+        fitNextBinaryCandidate(revision)
+    }
+
+    function evaluateAnchorCandidate(revision, fits) {
+        if (fits) {
+            fitBest = fitCandidate
+            fitState.lastFit = fitCandidate
+            if (fitCandidate >= fitState.maximumSize) {
+                finishFitSearch(revision)
+                return
+            }
+            fitState.direction = 1
+        } else {
+            fitState.lastFailure = fitCandidate
+            if (fitCandidate <= fitState.minimumSize) {
+                fitBest = fitState.minimumSize
+                finishFitSearch(revision)
+                return
+            }
+            fitState.direction = -1
+        }
+
+        fitState.phase = fitState.scanPhase
+        fitState.offset = 1
+        queueNextScanCandidate(revision)
+    }
+
+    function evaluateScanCandidate(revision, fits) {
+        if (fitState.direction > 0) {
+            if (fits) {
+                fitBest = fitCandidate
+                fitState.lastFit = fitCandidate
+                if (fitCandidate >= fitState.maximumSize) {
+                    finishFitSearch(revision)
+                    return
+                }
+            } else {
+                fitState.lastFailure = fitCandidate
+                beginBinarySearch(revision, fitState.lastFit + 1,
+                                  fitCandidate - 1)
+                return
+            }
+        } else {
+            if (fits) {
+                fitBest = fitCandidate
+                fitState.lastFit = fitCandidate
+                beginBinarySearch(revision, fitCandidate + 1,
+                                  fitState.lastFailure - 1)
+                return
+            }
+
+            fitState.lastFailure = fitCandidate
+            if (fitCandidate <= fitState.minimumSize) {
+                fitBest = fitState.minimumSize
+                finishFitSearch(revision)
+                return
+            }
+        }
+
+        fitState.offset = nextScanOffset(fitState.offset)
+        queueNextScanCandidate(revision)
+    }
+
+    function evaluateBinaryCandidate(revision, fits) {
+        if (fits) {
+            fitBest = fitCandidate
+            fitLow = fitCandidate + 1
+        } else {
+            fitHigh = fitCandidate - 1
+        }
+        fitNextBinaryCandidate(revision)
     }
 
     function evaluateCandidate(revision) {
@@ -109,13 +240,12 @@ Rectangle {
         const availableHeight = Math.max(0, editorViewport.height
                                             - fitState.safetyMargin)
         const fits = measuredHeight <= availableHeight
-        if (fits) {
-            fitBest = fitCandidate
-            fitLow = fitCandidate + 1
-        } else {
-            fitHigh = fitCandidate - 1
-        }
-        fitNextCandidate(revision)
+        if (fitState.phase === fitState.anchorPhase)
+            evaluateAnchorCandidate(revision, fits)
+        else if (fitState.phase === fitState.scanPhase)
+            evaluateScanCandidate(revision, fits)
+        else
+            evaluateBinaryCandidate(revision, fits)
     }
 
     function validateFitResult(revision) {
