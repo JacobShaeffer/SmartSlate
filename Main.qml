@@ -6,9 +6,10 @@ import QtQuick.VirtualKeyboard
 ApplicationWindow {
     id: window
 
-    // main.cpp supplies the native DDC/CI helper. It remains null in QML-only
-    // tests and previews, where brightness control is deliberately disabled.
+    // main.cpp supplies the native hardware helpers. They remain null in
+    // QML-only tests and previews.
     property var brightnessController: null
+    property var batteryMonitor: null
     property bool darkMode: true
     property int currentScreen: 0
     readonly property Item activeSlateInput: productionField.input.activeFocus
@@ -89,7 +90,24 @@ ApplicationWindow {
         dismissKeyboard()
         if (brightnessController)
             brightnessController.refresh()
+        if (batteryMonitor)
+            batteryMonitor.refresh()
         currentScreen = 1
+    }
+
+    function batteryRuntimeText() {
+        if (!batteryMonitor || !batteryMonitor.available)
+            return qsTr("Unavailable")
+        if (batteryMonitor.charging)
+            return qsTr("Charging")
+        const minutes = batteryMonitor.remainingMinutes
+        if (minutes < 0)
+            return qsTr("Estimating…")
+        if (minutes === 0)
+            return qsTr("<1m")
+        const hours = Math.floor(minutes / 60)
+        return hours > 0 ? qsTr("~%1h %2m").arg(hours).arg(minutes % 60)
+                         : qsTr("~%1m").arg(minutes)
     }
 
     function closeSettings() {
@@ -420,229 +438,332 @@ ApplicationWindow {
             objectName: "settingsScreen"
             color: window.pageColor
 
-            ColumnLayout {
+            Flickable {
+                id: settingsViewport
+                objectName: "settingsViewport"
                 anchors.fill: parent
                 anchors.margins: Math.max(20, Math.min(52, width * 0.04))
-                spacing: 28
+                clip: true
+                contentWidth: width
+                contentHeight: settingsColumn.implicitHeight
+                flickableDirection: Flickable.VerticalFlick
+                boundsBehavior: Flickable.StopAtBounds
+                ScrollBar.vertical: ScrollBar {}
 
-                RowLayout {
-                    Layout.fillWidth: true
-                    spacing: 18
+                ColumnLayout {
+                    id: settingsColumn
+                    width: settingsViewport.width
+                    spacing: 28
 
-                    Button {
-                        id: backButton
-                        objectName: "backButton"
-                        text: qsTr("‹  BACK")
-                        hoverEnabled: true
-                        Accessible.name: qsTr("Back to slate")
-
-                        contentItem: Label {
-                            text: backButton.text
-                            color: window.primaryTextColor
-                            font.pixelSize: 18
-                            font.weight: Font.Bold
-                            font.letterSpacing: 1.5
-                            horizontalAlignment: Text.AlignHCenter
-                            verticalAlignment: Text.AlignVCenter
-                        }
-
-                        background: Rectangle {
-                            implicitWidth: 148
-                            implicitHeight: 58
-                            color: backButton.down ? window.accentColor : window.surfaceColor
-                            border.width: 1
-                            border.color: backButton.activeFocus ? window.accentColor
-                                                                  : window.outlineColor
-                            radius: 3
-                        }
-
-                        onClicked: window.closeSettings()
-                    }
-
-                    Label {
-                        text: qsTr("SETTINGS")
-                        color: window.primaryTextColor
-                        font.pixelSize: 30
-                        font.weight: Font.Black
-                        font.letterSpacing: 3
+                    RowLayout {
                         Layout.fillWidth: true
-                    }
-                }
+                        spacing: 18
 
-                Rectangle {
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: 190
-                    color: window.surfaceColor
-                    border.width: 1
-                    border.color: window.outlineColor
-                    radius: 5
+                        Button {
+                            id: backButton
+                            objectName: "backButton"
+                            text: qsTr("‹  BACK")
+                            hoverEnabled: true
+                            Accessible.name: qsTr("Back to slate")
 
-                    ColumnLayout {
-                        anchors.fill: parent
-                        anchors.margins: 28
-                        spacing: 14
-
-                        RowLayout {
-                            Layout.fillWidth: true
-
-                            Label {
-                                text: qsTr("BRIGHTNESS")
+                            contentItem: Label {
+                                text: backButton.text
                                 color: window.primaryTextColor
                                 font.pixelSize: 18
                                 font.weight: Font.Bold
-                                font.letterSpacing: 2
-                                Layout.fillWidth: true
+                                font.letterSpacing: 1.5
+                                horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
                             }
-
-                            Label {
-                                text: brightnessSlider.enabled
-                                      ? Math.round(brightnessSlider.value) + "%" : "--"
-                                color: brightnessSlider.enabled ? window.accentColor
-                                                                : window.secondaryTextColor
-                                font.pixelSize: 24
-                                font.weight: Font.Bold
-                            }
-                        }
-
-                        Slider {
-                            id: brightnessSlider
-                            objectName: "brightnessSlider"
-                            from: 0
-                            to: 100
-                            stepSize: 1
-                            value: window.brightnessController
-                                   ? window.brightnessController.brightness : 100
-                            enabled: Boolean(window.brightnessController
-                                             && window.brightnessController.available)
-                            opacity: enabled ? 1 : 0.45
-                            Layout.fillWidth: true
-                            Accessible.name: qsTr("Display brightness")
 
                             background: Rectangle {
-                                x: brightnessSlider.leftPadding
-                                y: brightnessSlider.topPadding
-                                   + brightnessSlider.availableHeight / 2 - height / 2
-                                width: brightnessSlider.availableWidth
-                                height: 10
-                                radius: 5
+                                implicitWidth: 148
+                                implicitHeight: 58
+                                color: backButton.down ? window.accentColor : window.surfaceColor
+                                border.width: 1
+                                border.color: backButton.activeFocus ? window.accentColor
+                                                                      : window.outlineColor
+                                radius: 3
+                            }
+
+                            onClicked: window.closeSettings()
+                        }
+
+                        Label {
+                            text: qsTr("SETTINGS")
+                            color: window.primaryTextColor
+                            font.pixelSize: 30
+                            font.weight: Font.Black
+                            font.letterSpacing: 3
+                            Layout.fillWidth: true
+                        }
+                    }
+
+                    Rectangle {
+                        objectName: "batteryCard"
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: Math.max(190, batteryContent.implicitHeight + 48)
+                        color: window.surfaceColor
+                        border.width: 1
+                        border.color: window.outlineColor
+                        radius: 5
+
+                        ColumnLayout {
+                            id: batteryContent
+                            anchors.fill: parent
+                            anchors.margins: 24
+                            spacing: 14
+
+                            RowLayout {
+                                Layout.fillWidth: true
+
+                                Label {
+                                    text: qsTr("BATTERY")
+                                    color: window.primaryTextColor
+                                    font.pixelSize: 18
+                                    font.weight: Font.Bold
+                                    font.letterSpacing: 2
+                                    Layout.fillWidth: true
+                                }
+
+                                Label {
+                                    objectName: "batteryPercentage"
+                                    text: window.batteryMonitor && window.batteryMonitor.available
+                                          ? window.batteryMonitor.percentage + "%" : "--"
+                                    color: window.batteryMonitor && window.batteryMonitor.available
+                                           ? window.accentColor : window.secondaryTextColor
+                                    font.pixelSize: 28
+                                    font.weight: Font.Bold
+                                    Accessible.name: qsTr("Battery charge: %1").arg(text)
+                                }
+                            }
+
+                            Rectangle {
+                                Layout.fillWidth: true
+                                Layout.preferredHeight: 8
+                                radius: 4
                                 color: window.outlineColor
 
                                 Rectangle {
-                                    width: brightnessSlider.visualPosition * parent.width
+                                    width: parent.width * (window.batteryMonitor
+                                                           && window.batteryMonitor.available
+                                                           ? window.batteryMonitor.percentage / 100 : 0)
                                     height: parent.height
                                     radius: parent.radius
                                     color: window.accentColor
                                 }
                             }
 
-                            handle: Rectangle {
-                                x: brightnessSlider.leftPadding
-                                   + brightnessSlider.visualPosition
-                                     * (brightnessSlider.availableWidth - width)
-                                y: brightnessSlider.topPadding
-                                   + brightnessSlider.availableHeight / 2 - height / 2
-                                implicitWidth: 34
-                                implicitHeight: 34
-                                radius: 17
-                                color: brightnessSlider.pressed ? window.accentColor
-                                                                 : window.raisedSurfaceColor
-                                border.width: 4
-                                border.color: window.accentColor
-                            }
+                            RowLayout {
+                                Layout.fillWidth: true
+                                spacing: 16
 
-                            onMoved: brightnessDebounce.restart()
-                        }
+                                Label {
+                                    text: qsTr("Estimated remaining")
+                                    color: window.secondaryTextColor
+                                    font.pixelSize: 16
+                                    Layout.fillWidth: true
+                                    wrapMode: Text.Wrap
+                                }
 
-                        Label {
-                            text: window.brightnessController
-                                  ? window.brightnessController.status
-                                  : qsTr("Brightness control unavailable: native DDC/CI backend not loaded.")
-                            color: window.secondaryTextColor
-                            font.pixelSize: 14
-                            Layout.fillWidth: true
-                            wrapMode: Text.Wrap
-                        }
-                    }
-                }
-
-                Rectangle {
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: 128
-                    color: window.surfaceColor
-                    border.width: 1
-                    border.color: window.outlineColor
-                    radius: 5
-
-                    RowLayout {
-                        anchors.fill: parent
-                        anchors.margins: 28
-                        spacing: 24
-
-                        ColumnLayout {
-                            spacing: 5
-                            Layout.fillWidth: true
-
-                            Label {
-                                text: qsTr("APPEARANCE")
-                                color: window.primaryTextColor
-                                font.pixelSize: 18
-                                font.weight: Font.Bold
-                                font.letterSpacing: 2
-                            }
-
-                            Label {
-                                text: window.darkMode ? qsTr("Dark mode") : qsTr("Light mode")
-                                color: window.secondaryTextColor
-                                font.pixelSize: 16
-                            }
-                        }
-
-                        Switch {
-                            id: themeToggle
-                            objectName: "themeToggle"
-                            checked: window.darkMode
-                            text: checked ? qsTr("DARK") : qsTr("LIGHT")
-                            Accessible.name: qsTr("Dark or light mode")
-
-                            indicator: Rectangle {
-                                implicitWidth: 78
-                                implicitHeight: 42
-                                x: themeToggle.leftPadding
-                                y: parent.height / 2 - height / 2
-                                radius: 21
-                                color: themeToggle.checked ? window.accentColor
-                                                           : window.outlineColor
-
-                                Rectangle {
-                                    x: themeToggle.checked ? parent.width - width - 5 : 5
-                                    y: 5
-                                    width: 32
-                                    height: 32
-                                    radius: 16
-                                    color: themeToggle.checked ? "#171819" : "#ffffff"
-
-                                    Behavior on x {
-                                        NumberAnimation { duration: 120 }
-                                    }
+                                Label {
+                                    objectName: "batteryRuntime"
+                                    text: window.batteryRuntimeText()
+                                    color: window.primaryTextColor
+                                    font.pixelSize: 24
+                                    font.weight: Font.Bold
+                                    Layout.maximumWidth: Math.max(100, (settingsViewport.width - 48) * 0.55)
+                                    wrapMode: Text.Wrap
+                                    horizontalAlignment: Text.AlignRight
+                                    Accessible.name: qsTr("Estimated battery time remaining: %1").arg(text)
                                 }
                             }
 
-                            contentItem: Label {
-                                leftPadding: themeToggle.indicator.width + themeToggle.spacing
-                                text: themeToggle.text
-                                color: window.primaryTextColor
-                                font.pixelSize: 16
-                                font.weight: Font.Bold
-                                font.letterSpacing: 1.5
-                                verticalAlignment: Text.AlignVCenter
+                            Label {
+                                objectName: "batteryStatus"
+                                text: window.batteryMonitor ? window.batteryMonitor.status
+                                                            : qsTr("Battery monitor unavailable.")
+                                color: window.secondaryTextColor
+                                font.pixelSize: 14
+                                Layout.fillWidth: true
+                                wrapMode: Text.Wrap
+                            }
+                        }
+                    }
+
+                    Rectangle {
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 190
+                        color: window.surfaceColor
+                        border.width: 1
+                        border.color: window.outlineColor
+                        radius: 5
+
+                        ColumnLayout {
+                            anchors.fill: parent
+                            anchors.margins: 28
+                            spacing: 14
+
+                            RowLayout {
+                                Layout.fillWidth: true
+
+                                Label {
+                                    text: qsTr("BRIGHTNESS")
+                                    color: window.primaryTextColor
+                                    font.pixelSize: 18
+                                    font.weight: Font.Bold
+                                    font.letterSpacing: 2
+                                    Layout.fillWidth: true
+                                }
+
+                                Label {
+                                    text: brightnessSlider.enabled
+                                          ? Math.round(brightnessSlider.value) + "%" : "--"
+                                    color: brightnessSlider.enabled ? window.accentColor
+                                                                    : window.secondaryTextColor
+                                    font.pixelSize: 24
+                                    font.weight: Font.Bold
+                                }
                             }
 
-                            onToggled: window.darkMode = checked
+                            Slider {
+                                id: brightnessSlider
+                                objectName: "brightnessSlider"
+                                from: 0
+                                to: 100
+                                stepSize: 1
+                                value: window.brightnessController
+                                       ? window.brightnessController.brightness : 100
+                                enabled: Boolean(window.brightnessController
+                                                 && window.brightnessController.available)
+                                opacity: enabled ? 1 : 0.45
+                                Layout.fillWidth: true
+                                Accessible.name: qsTr("Display brightness")
+
+                                background: Rectangle {
+                                    x: brightnessSlider.leftPadding
+                                    y: brightnessSlider.topPadding
+                                       + brightnessSlider.availableHeight / 2 - height / 2
+                                    width: brightnessSlider.availableWidth
+                                    height: 10
+                                    radius: 5
+                                    color: window.outlineColor
+
+                                    Rectangle {
+                                        width: brightnessSlider.visualPosition * parent.width
+                                        height: parent.height
+                                        radius: parent.radius
+                                        color: window.accentColor
+                                    }
+                                }
+
+                                handle: Rectangle {
+                                    x: brightnessSlider.leftPadding
+                                       + brightnessSlider.visualPosition
+                                         * (brightnessSlider.availableWidth - width)
+                                    y: brightnessSlider.topPadding
+                                       + brightnessSlider.availableHeight / 2 - height / 2
+                                    implicitWidth: 34
+                                    implicitHeight: 34
+                                    radius: 17
+                                    color: brightnessSlider.pressed ? window.accentColor
+                                                                     : window.raisedSurfaceColor
+                                    border.width: 4
+                                    border.color: window.accentColor
+                                }
+
+                                onMoved: brightnessDebounce.restart()
+                            }
+
+                            Label {
+                                text: window.brightnessController
+                                      ? window.brightnessController.status
+                                      : qsTr("Brightness control unavailable: native DDC/CI backend not loaded.")
+                                color: window.secondaryTextColor
+                                font.pixelSize: 14
+                                Layout.fillWidth: true
+                                wrapMode: Text.Wrap
+                            }
+                        }
+                    }
+
+                    Rectangle {
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 128
+                        color: window.surfaceColor
+                        border.width: 1
+                        border.color: window.outlineColor
+                        radius: 5
+
+                        RowLayout {
+                            anchors.fill: parent
+                            anchors.margins: 28
+                            spacing: 24
+
+                            ColumnLayout {
+                                spacing: 5
+                                Layout.fillWidth: true
+
+                                Label {
+                                    text: qsTr("APPEARANCE")
+                                    color: window.primaryTextColor
+                                    font.pixelSize: 18
+                                    font.weight: Font.Bold
+                                    font.letterSpacing: 2
+                                }
+
+                                Label {
+                                    text: window.darkMode ? qsTr("Dark mode") : qsTr("Light mode")
+                                    color: window.secondaryTextColor
+                                    font.pixelSize: 16
+                                }
+                            }
+
+                            Switch {
+                                id: themeToggle
+                                objectName: "themeToggle"
+                                checked: window.darkMode
+                                text: checked ? qsTr("DARK") : qsTr("LIGHT")
+                                Accessible.name: qsTr("Dark or light mode")
+
+                                indicator: Rectangle {
+                                    implicitWidth: 78
+                                    implicitHeight: 42
+                                    x: themeToggle.leftPadding
+                                    y: parent.height / 2 - height / 2
+                                    radius: 21
+                                    color: themeToggle.checked ? window.accentColor
+                                                               : window.outlineColor
+
+                                    Rectangle {
+                                        x: themeToggle.checked ? parent.width - width - 5 : 5
+                                        y: 5
+                                        width: 32
+                                        height: 32
+                                        radius: 16
+                                        color: themeToggle.checked ? "#171819" : "#ffffff"
+
+                                        Behavior on x {
+                                            NumberAnimation { duration: 120 }
+                                        }
+                                    }
+                                }
+
+                                contentItem: Label {
+                                    leftPadding: themeToggle.indicator.width + themeToggle.spacing
+                                    text: themeToggle.text
+                                    color: window.primaryTextColor
+                                    font.pixelSize: 16
+                                    font.weight: Font.Bold
+                                    font.letterSpacing: 1.5
+                                    verticalAlignment: Text.AlignVCenter
+                                }
+
+                                onToggled: window.darkMode = checked
+                            }
                         }
                     }
                 }
-
-                Item { Layout.fillHeight: true }
             }
         }
     }

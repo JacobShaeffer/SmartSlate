@@ -5,6 +5,8 @@
 - [x] Settings button uses a gear and opens the settings screen.
 - [x] MOS/SYNC is display-only toggle state.
 - [x] Settings screen includes a dark/light appearance toggle.
+- [x] Settings screen displays MAX17048 battery percentage and estimated remaining
+  runtime over Linux I2C. Setup and validation: [battery monitor](docs/battery-monitor.md).
 - [x] Settings screen controls the Waveshare display with Linux DDC/CI
   (`ddcutil getvcp 10` / `ddcutil setvcp 10 <0-100>`). The control stays
   disabled unless the physical display returns a valid brightness value.
